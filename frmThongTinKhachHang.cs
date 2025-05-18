@@ -12,11 +12,16 @@ namespace QuanLyTiemTapHoa
         private const string Cnn =
             @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
 
-        public frmThongTinKhachHang(string maKH)
+        public frmThongTinKhachHang(string maKH, string tenKH, string diaChi, string sdt)
         {
-            _maKH = maKH;
             InitializeComponent();
+            _maKH = maKH;
 
+            // Gán lên các TextBox trên form
+            txtMaKH.Text = maKH;
+            txtTenKH.Text = tenKH;
+            txtDiaChi.Text = diaChi;
+            txtSDT.Text = sdt;
             Load += Frm_Load;
             btnClose.Click += (_, __) => Close();
             btnUpdate.Click += BtnUpdate_Click;
@@ -38,10 +43,10 @@ namespace QuanLyTiemTapHoa
 
             if (!rd.Read()) return;
 
-            txtMaKH.Text = rd.GetString(0);
-            txtTenKH.Text = rd.GetString(1);
-            txtSDT.Text = rd.GetString(2);
-            txtDiaChi.Text = rd.GetString(3);
+            txtMaKH.Text = rd.IsDBNull(0) ? "" : rd.GetString(0);
+            txtTenKH.Text = rd.IsDBNull(1) ? "" : rd.GetString(1);
+            txtSDT.Text = rd.IsDBNull(2) ? "" : rd.GetString(2);
+            txtDiaChi.Text = rd.IsDBNull(3) ? "" : rd.GetString(3);
 
             // Cho phép chỉnh sửa
             txtTenKH.ReadOnly = false;

@@ -15,8 +15,14 @@ namespace QuanLyTiemTapHoa
         public frmLogin()
         {
             InitializeComponent();
+            labelError.Visible = false;
         }
-
+        public void ResetForm()
+        {
+            txtUsername.Clear();
+            txtPassword.Clear();
+            txtUsername.Focus();
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -24,8 +30,11 @@ namespace QuanLyTiemTapHoa
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmKhachHang  khachHangForm = new frmKhachHang();
+            this.Hide();
+            frmKhachHang khachHangForm = new frmKhachHang();
+            khachHangForm.FormClosed += (s, args) => this.Show(); khachHangForm.WindowState = FormWindowState.Maximized;
             khachHangForm.Show();
         }
+
     }
 }

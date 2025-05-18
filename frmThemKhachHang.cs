@@ -8,17 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Guna.UI2.WinForms;
 namespace QuanLyTiemTapHoa
 {
     public partial class frmThemKhachHang : Form
     {
-        private const string Cnn =
-            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
-        public frmThemKhachHang()
+        private frmKhachHang parentForm;
+        public frmThemKhachHang(frmKhachHang parent)
         {
             InitializeComponent();
+            parentForm = parent;
+
         }
+        private const string Cnn =
+            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
         private void btnThemClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -41,17 +44,25 @@ namespace QuanLyTiemTapHoa
                 cnn.Open();
                 int rows = cmd.ExecuteNonQuery();
 
-                MessageBox.Show(rows > 0
-                        ? "Đã thêm khách hàng."
-                        : "Thêm khách hàng không thành công.",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (rows > 0)
+                {
+                    MessageBox.Show("Đã thêm khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    // Gọi lại danh sách khách hàng ở form cha
+                    parentForm.LoadKhachHang();
+
+                    // Đóng form hiện tại
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm khách hàng không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm khách hàng");
             }
-
         }
     }
 }

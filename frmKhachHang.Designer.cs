@@ -515,7 +515,6 @@ namespace QuanLyTiemTapHoa
             // 
             // panelContent
             // 
-            panelContent.AutoScroll = false;
             panelContent.BackColor = Color.FromArgb(196, 217, 255);
             panelContent.Controls.Add(btnExit);
             panelContent.Controls.Add(LabelKhachHang);
@@ -595,6 +594,7 @@ namespace QuanLyTiemTapHoa
             txtTimKiem.ShadowDecoration.CustomizableEdges = customizableEdges38;
             txtTimKiem.Size = new Size(722, 58);
             txtTimKiem.TabIndex = 0;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // btnThem
             // 
@@ -667,7 +667,6 @@ namespace QuanLyTiemTapHoa
             dgvKhachHang.ThemeStyle.RowsStyle.Height = 29;
             dgvKhachHang.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvKhachHang.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            
             // 
             // frmKhachHang
             // 
