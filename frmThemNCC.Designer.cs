@@ -105,17 +105,16 @@
             cpbAdd.FillColor = Color.Transparent;
             cpbAdd.Image = (Image)resources.GetObject("cpbAdd.Image");
             cpbAdd.ImageRotate = 0F;
-            cpbAdd.Location = new Point(163, 420);
+            cpbAdd.Location = new Point(162, 413);
             cpbAdd.Name = "cpbAdd";
             cpbAdd.ShadowDecoration.CustomizableEdges = customizableEdges1;
             cpbAdd.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            cpbAdd.Size = new Size(32, 28);
+            cpbAdd.Size = new Size(38, 38);
             cpbAdd.SizeMode = PictureBoxSizeMode.StretchImage;
             cpbAdd.TabIndex = 10;
             cpbAdd.TabStop = false;
             cpbAdd.UseTransparentBackground = true;
             cpbAdd.UseWaitCursor = true;
-            cpbAdd.Click += cpbAdd_Click;
             // 
             // btnThem
             // 
@@ -128,7 +127,7 @@
             btnThem.Location = new Point(149, 413);
             btnThem.Name = "btnThem";
             btnThem.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            btnThem.Size = new Size(164, 45);
+            btnThem.Size = new Size(160, 40);
             btnThem.TabIndex = 9;
             btnThem.Text = "Thêm";
             btnThem.TextAlign = HorizontalAlignment.Right;

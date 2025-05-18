@@ -55,11 +55,6 @@ namespace QuanLyTiemTapHoa
             }
 
         }
-
-        private void cpbAdd_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
