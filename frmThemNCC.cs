@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace QuanLyTiemTapHoa
 {
-    public partial class frmThemKhachHang : Form
+    public partial class frmThemNCC : Form
     {
         private const string Cnn =
-            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;Intergrated Security=True; TrustServerCertificate=True";
-        public frmThemKhachHang()
+              @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;Intergrated Security=True; TrustServerCertificate=True";
+        public frmThemNCC()
         {
             InitializeComponent();
         }
@@ -27,22 +27,16 @@ namespace QuanLyTiemTapHoa
         private void btnThem_Click(object sender, EventArgs e)
         {
             using var cnn = new SqlConnection(Cnn);
-            const string sql = "INSERT INTO KhachHang (MaKH, TenKH, SDT_KH, DiaChi)" +
+            const string sql = "INSERT INTO NhaCungCap (MaNCC, TenNCC, SDT, DiaChi)" +
                 "VALUES (@ma, @ten, @sdt, @dc)";
 
 
             using var cmd = new SqlCommand(sql, cnn);
             // Truyền string thẳng cho cột varchar, nvarchar
-            cmd.Parameters.AddWithValue("@ma", txtMaKH.Text.Trim());
-            cmd.Parameters.AddWithValue("@ten", txtTenKH.Text.Trim());
+            cmd.Parameters.AddWithValue("@ma", txtMaNCC.Text.Trim());
+            cmd.Parameters.AddWithValue("@ten", txtTenNCC.Text.Trim());
             cmd.Parameters.AddWithValue("@sdt", txtSDT.Text.Trim());
             cmd.Parameters.AddWithValue("@dc", txtDiaChi.Text.Trim());
-
-
-
-
-
-
 
             try
             {
@@ -50,16 +44,17 @@ namespace QuanLyTiemTapHoa
                 int rows = cmd.ExecuteNonQuery();
 
                 MessageBox.Show(rows > 0
-                        ? "Đã thêm khách hàng."
-                        : "Thêm khách hàng không thành công.",
+                        ? "Đã thêm nhà cung cấp ."
+                        : "Thêm nhà cung cấp không thành công.",
                     "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm khách hàng");
+                MessageBox.Show("Lỗi khi thêm nhà cung cấp");
             }
 
         }
     }
 }
+
