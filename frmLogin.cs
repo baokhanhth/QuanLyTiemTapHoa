@@ -30,10 +30,9 @@ namespace QuanLyTiemTapHoa
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmKhachHang khachHangForm = new frmKhachHang();
-            khachHangForm.FormClosed += (s, args) => this.Show(); khachHangForm.WindowState = FormWindowState.Maximized;
-            khachHangForm.Show();
+                this.Hide();
+                frmKhachHang khachHangForm = new frmKhachHang();
+                khachHangForm.Show();
         }
 
     }

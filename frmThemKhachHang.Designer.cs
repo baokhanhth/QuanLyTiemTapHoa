@@ -35,6 +35,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemKhachHang));
@@ -66,6 +67,10 @@
             lblTitle = new Label();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
             cpbThem = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            tDiaChi = new ToolTip(components);
+            tSDT = new ToolTip(components);
+            tTenKH = new ToolTip(components);
+            tMaKH = new ToolTip(components);
             pnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cpbAdd).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cpbThem).BeginInit();
@@ -157,14 +162,11 @@
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.PlaceholderForeColor = Color.Black;
             txtDiaChi.PlaceholderText = "Địa Chỉ";
-            txtDiaChi.ReadOnly = false;
             txtDiaChi.SelectedText = "";
             txtDiaChi.ShadowDecoration.CustomizableEdges = customizableEdges7;
             txtDiaChi.Size = new Size(400, 80);
             txtDiaChi.TabIndex = 0;
-            ToolTip tDiaChi = new ToolTip();
             tDiaChi.SetToolTip(txtDiaChi, "Nhập địa chỉ khách hàng tại đây");
-
             // 
             // txtSDT
             // 
@@ -178,14 +180,11 @@
             txtSDT.Name = "txtSDT";
             txtSDT.PlaceholderForeColor = Color.Black;
             txtSDT.PlaceholderText = "Số Điện Thoại";
-            txtSDT.ReadOnly = false;
             txtSDT.SelectedText = "";
             txtSDT.ShadowDecoration.CustomizableEdges = customizableEdges9;
             txtSDT.Size = new Size(400, 35);
             txtSDT.TabIndex = 1;
-            ToolTip tSDT = new ToolTip();
             tSDT.SetToolTip(txtSDT, "Nhập số điện thoại khách hàng tại đây");
-
             // 
             // txtTenKH
             // 
@@ -199,14 +198,11 @@
             txtTenKH.Name = "txtTenKH";
             txtTenKH.PlaceholderForeColor = Color.Black;
             txtTenKH.PlaceholderText = "Tên Khách Hàng";
-            txtTenKH.ReadOnly = false;
             txtTenKH.SelectedText = "";
             txtTenKH.ShadowDecoration.CustomizableEdges = customizableEdges11;
             txtTenKH.Size = new Size(400, 35);
             txtTenKH.TabIndex = 2;
-            ToolTip tTenKH = new ToolTip();
             tTenKH.SetToolTip(txtTenKH, "Nhập tên khách hàng tại đây");
-
             // 
             // txtMaKH
             // 
@@ -221,14 +217,11 @@
             txtMaKH.Name = "txtMaKH";
             txtMaKH.PlaceholderForeColor = Color.Black;
             txtMaKH.PlaceholderText = "Mã Khách Hàng";
-            txtMaKH.ReadOnly = false;
             txtMaKH.SelectedText = "";
             txtMaKH.ShadowDecoration.CustomizableEdges = customizableEdges13;
             txtMaKH.Size = new Size(400, 42);
             txtMaKH.TabIndex = 3;
-            ToolTip tMaKH = new ToolTip();
             tMaKH.SetToolTip(txtMaKH, "Nhập tên khách hàng tại đây");
-
             // 
             // label1
             // 
@@ -297,6 +290,10 @@
         private Label label1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox cpbAdd;
         private Guna.UI2.WinForms.Guna2Button btnThem;
+        private ToolTip tDiaChi;
+        private ToolTip tSDT;
+        private ToolTip tTenKH;
+        private ToolTip tMaKH;
     }
     #endregion
 }
