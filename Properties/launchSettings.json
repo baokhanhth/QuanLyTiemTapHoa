@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "QuanLyTiemTapHoa": {
+      "commandName": "Executable",
+      "executablePath": "D:\\University\\SEMESTER 4\\DBMS\\BTN\\QuanLyTiemTapHoa\\bin\\Debug\\net8.0-windows\\QuanLyTiemTapHoa.exe",
+      "sqlDebugging": false,
+      "jsWebView2Debugging": false,
+      "nativeDebugging": true
+    }
+  }
+}

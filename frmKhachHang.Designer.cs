@@ -1,4 +1,6 @@
 ﻿// KhachHangForm.Designer.cs
+using Microsoft.Data.SqlClient;
+
 namespace QuanLyTiemTapHoa
 {
     partial class frmKhachHang
@@ -513,7 +515,7 @@ namespace QuanLyTiemTapHoa
             // 
             // panelContent
             // 
-            panelContent.AutoScroll = true;
+            panelContent.AutoScroll = false;
             panelContent.BackColor = Color.FromArgb(196, 217, 255);
             panelContent.Controls.Add(btnExit);
             panelContent.Controls.Add(LabelKhachHang);
@@ -665,6 +667,7 @@ namespace QuanLyTiemTapHoa
             dgvKhachHang.ThemeStyle.RowsStyle.Height = 29;
             dgvKhachHang.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dgvKhachHang.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            
             // 
             // frmKhachHang
             // 
