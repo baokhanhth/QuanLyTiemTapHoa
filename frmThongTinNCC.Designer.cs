@@ -61,11 +61,9 @@ namespace QuanLiTiemTapHoa
             ((System.ComponentModel.ISupportInitialize)cpbDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cpbUpdate).BeginInit();
             SuspendLayout();
-
             // 
             // pnlBackground
             // 
-            #endregion
             pnlBackground.BackColor = Color.Transparent;
             pnlBackground.BorderRadius = 20;
             pnlBackground.Controls.Add(btnClose);
@@ -106,6 +104,7 @@ namespace QuanLiTiemTapHoa
             btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             btnClose.Size = new Size(50, 50);
             btnClose.TabIndex = 10;
+            btnClose.Click += btnClose_Click;
             // 
             // cpbDelete
             // 

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "QuanLyTiemTapHoa": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\nguye\\OneDrive\\Documents\\CSDL\\github",
+      "remoteDebugEnabled": true
+    }
+  }
+}
