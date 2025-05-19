@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -52,7 +51,7 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.White;
-            guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
+            guna2Panel1.BackgroundImage = Properties.Resources.grocery;
             guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
             guna2Panel1.BorderRadius = 18;
             guna2Panel1.Controls.Add(guna2HtmlLabel3);
@@ -87,7 +86,7 @@
             labelError.ForeColor = Color.FromArgb(192, 0, 0);
             labelError.Location = new Point(1365, 722);
             labelError.Name = "labelError";
-            labelError.Size = new Size(264, 24);
+            labelError.Size = new Size(335, 24);
             labelError.TabIndex = 6;
             labelError.Text = "Tên đăng nhập hoặc mật khẩu không đúng!";
             // 
@@ -125,7 +124,7 @@
             txtPassword.Font = new Font("Open Sans Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtPassword.ForeColor = Color.Black;
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.IconLeft = (Image)resources.GetObject("txtPassword.IconLeft");
+            txtPassword.IconLeft = Properties.Resources.locked;
             txtPassword.IconLeftOffset = new Point(10, -2);
             txtPassword.IconLeftSize = new Size(30, 30);
             txtPassword.Location = new Point(1264, 500);
@@ -136,6 +135,7 @@
             txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtPassword.Size = new Size(500, 100);
             txtPassword.TabIndex = 4;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
@@ -151,7 +151,7 @@
             txtUsername.Font = new Font("Open Sans Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtUsername.ForeColor = Color.Black;
             txtUsername.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtUsername.IconLeft = (Image)resources.GetObject("txtUsername.IconLeft");
+            txtUsername.IconLeft = Properties.Resources.user;
             txtUsername.IconLeftOffset = new Point(10, -2);
             txtUsername.IconLeftSize = new Size(30, 30);
             txtUsername.Location = new Point(1264, 300);
@@ -184,9 +184,9 @@
             btnExit.FillColor = Color.Transparent;
             btnExit.Font = new Font("Segoe UI", 9F);
             btnExit.ForeColor = Color.Transparent;
-            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
+            btnExit.Image = Properties.Resources.cancel_50px;
             btnExit.ImageSize = new Size(50, 50);
-            btnExit.Location = new Point(1800, 26);
+            btnExit.Location = new Point(1786, 12);
             btnExit.Name = "btnExit";
             btnExit.ShadowDecoration.CustomizableEdges = customizableEdges7;
             btnExit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;

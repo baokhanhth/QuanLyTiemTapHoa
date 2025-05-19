@@ -18,7 +18,7 @@
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new frmThongTinKhachHang("KH00000001"));
-            frmLoginInstance = new frmLogin();   // 🔧 Khởi tạo form login
+            frmLoginInstance = new frmLogin();   
             Application.Run(frmLoginInstance);
             //Application.Run(new frmKhachHang());
             //Application.Run(new frmThemKhachHang());    

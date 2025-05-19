@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using LiveCharts.WinForms;
 namespace QuanLyTiemTapHoa
 {
     public partial class frmThemKhachHang : Form
@@ -20,8 +21,7 @@ namespace QuanLyTiemTapHoa
             parentForm = parent;
 
         }
-        private const string Cnn =
-            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
+        private const string Cnn =  @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
         private void btnThemClose_Click(object sender, EventArgs e)
         {
             this.Close();

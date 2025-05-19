@@ -38,7 +38,6 @@
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemKhachHang));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -92,7 +91,7 @@
             pnlBackground.Controls.Add(btnClose);
             pnlBackground.CustomizableEdges = customizableEdges16;
             pnlBackground.Dock = DockStyle.Fill;
-            pnlBackground.FillColor = Color.Violet;
+            pnlBackground.FillColor = Color.Plum;
             pnlBackground.FillColor2 = Color.PowderBlue;
             pnlBackground.Location = new Point(0, 0);
             pnlBackground.Name = "pnlBackground";
@@ -103,7 +102,7 @@
             // cpbAdd
             // 
             cpbAdd.FillColor = Color.Transparent;
-            cpbAdd.Image = (Image)resources.GetObject("cpbAdd.Image");
+            cpbAdd.Image = Properties.Resources.plus;
             cpbAdd.ImageRotate = 0F;
             cpbAdd.Location = new Point(160, 415);
             cpbAdd.Name = "cpbAdd";
@@ -122,7 +121,7 @@
             btnThem.BorderRadius = 18;
             btnThem.CustomizableEdges = customizableEdges2;
             btnThem.FillColor = Color.White;
-            btnThem.Font = new Font("Open Sans SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnThem.Font = new Font("Open Sans ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThem.ForeColor = Color.FromArgb(27, 20, 100);
             btnThem.Location = new Point(151, 413);
             btnThem.Name = "btnThem";
@@ -140,7 +139,7 @@
             btnThemClose.FillColor = Color.Transparent;
             btnThemClose.Font = new Font("Segoe UI", 9F);
             btnThemClose.ForeColor = Color.White;
-            btnThemClose.Image = (Image)resources.GetObject("btnThemClose.Image");
+            btnThemClose.Image = Properties.Resources.cancel_50px;
             btnThemClose.ImageSize = new Size(50, 50);
             btnThemClose.Location = new Point(438, 12);
             btnThemClose.Name = "btnThemClose";
@@ -227,11 +226,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label1.Font = new Font("Open Sans ExtraBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(27, 20, 100);
             label1.Location = new Point(116, 21);
             label1.Name = "label1";
-            label1.Size = new Size(251, 32);
+            label1.Size = new Size(249, 33);
             label1.TabIndex = 4;
             label1.Text = "THÊM KHÁCH HÀNG";
             // 

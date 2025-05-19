@@ -48,27 +48,47 @@ namespace QuanLyTiemTapHoa
             {
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
-                da.Fill(dt);
-                dgvKhachHang.DataSource = dt;
 
-                // Cấu hình hiển thị
+
+
+                // Cấu hình hiển thị (trước khi load data)
                 dgvKhachHang.ColumnHeadersDefaultCellStyle.Font = new Font("Open Sans", 14, FontStyle.Bold);
                 dgvKhachHang.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 dgvKhachHang.DefaultCellStyle.Font = new Font("Open Sans", 12, FontStyle.Regular);
 
-                dgvKhachHang.RowTemplate.Height = 80;
-                dgvKhachHang.ColumnHeadersHeight = 80;
+                dgvKhachHang.RowTemplate.Height = 60;
+                dgvKhachHang.ColumnHeadersHeight = 60;
 
-                dgvKhachHang.Columns["DiaChi"].Width = 400;
-                dgvKhachHang.Columns["SDT_KH"].Width = 200;
-                dgvKhachHang.Columns["TenKH"].Width = 300;
 
-                dgvKhachHang.Columns["MaKH"].HeaderText = "Mã Khách Hàng";
-                dgvKhachHang.Columns["MaKH"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                // Load dữ liệu vào DataGridView
 
-                dgvKhachHang.Columns["TenKH"].HeaderText = "Tên Khách Hàng";
-                dgvKhachHang.Columns["DiaChi"].HeaderText = "Địa Chỉ";
-                dgvKhachHang.Columns["SDT_KH"].HeaderText = "Số Điện Thoại";
+                da.Fill(dt);
+                dgvKhachHang.DataSource = dt;
+
+                if (dgvKhachHang.Columns.Contains("MaKH"))
+                {
+                    dgvKhachHang.Columns["MaKH"].HeaderText = "Mã Khách Hàng";
+                    dgvKhachHang.Columns["MaKH"].Width = 150;
+                    dgvKhachHang.Columns["MaKH"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
+                if (dgvKhachHang.Columns.Contains("TenKH"))
+                {
+                    dgvKhachHang.Columns["TenKH"].HeaderText = "Tên Khách Hàng";
+                    dgvKhachHang.Columns["TenKH"].Width = 250;
+                }
+
+                if (dgvKhachHang.Columns.Contains("DiaChi"))
+                {
+                    dgvKhachHang.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+                    dgvKhachHang.Columns["DiaChi"].Width = 450;
+                }
+
+                if (dgvKhachHang.Columns.Contains("SDT_KH"))
+                {
+                    dgvKhachHang.Columns["SDT_KH"].HeaderText = "Số Điện Thoại";
+                    dgvKhachHang.Columns["SDT_KH"].Width = 250;
+                }
             }
         }
 
@@ -108,6 +128,13 @@ namespace QuanLyTiemTapHoa
             frm.ShowDialog();
 
             LoadKhachHang();
+        }
+
+        private void btnTrangChu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmTrangChu trangChuForm = new frmTrangChu();
+            trangChuForm.Show();
         }
     }
 }
