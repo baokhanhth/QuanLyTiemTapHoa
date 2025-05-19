@@ -37,6 +37,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             labelError = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -130,7 +131,7 @@
             txtPassword.Location = new Point(1264, 500);
             txtPassword.Margin = new Padding(5, 6, 5, 6);
             txtPassword.Name = "txtPassword";
-            txtPassword.PlaceholderText = "Password";
+            txtPassword.PlaceholderText = "Mật khẩu";
             txtPassword.SelectedText = "";
             txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
             txtPassword.Size = new Size(500, 100);
@@ -157,7 +158,7 @@
             txtUsername.Location = new Point(1264, 300);
             txtUsername.Margin = new Padding(5, 6, 5, 6);
             txtUsername.Name = "txtUsername";
-            txtUsername.PlaceholderText = "Username";
+            txtUsername.PlaceholderText = "Tài khoản";
             txtUsername.SelectedText = "";
             txtUsername.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtUsername.Size = new Size(500, 100);
@@ -202,6 +203,7 @@
             ClientSize = new Size(1848, 761);
             Controls.Add(guna2Panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

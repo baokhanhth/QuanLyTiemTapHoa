@@ -29,6 +29,7 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinKhachHang));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -89,7 +90,7 @@
             // cpbDelete
             // 
             cpbDelete.FillColor = Color.Transparent;
-            cpbDelete.Image = Properties.Resources.delete;
+            cpbDelete.Image = (Image)resources.GetObject("cpbDelete.Image");
             cpbDelete.ImageLocation = "0";
             cpbDelete.ImageRotate = 0F;
             cpbDelete.Location = new Point(290, 408);
@@ -261,6 +262,7 @@
             ClientSize = new Size(500, 600);
             Controls.Add(pnlBackground);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmThongTinKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
             pnlBackground.ResumeLayout(false);

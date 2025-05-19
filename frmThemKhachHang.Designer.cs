@@ -54,6 +54,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemKhachHang));
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             cpbAdd = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             btnThem = new Guna.UI2.WinForms.Guna2Button();
@@ -275,6 +276,7 @@
             ClientSize = new Size(500, 600);
             Controls.Add(pnlBackground);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmThemKhachHang";
             StartPosition = FormStartPosition.CenterScreen;
             pnlBackground.ResumeLayout(false);
