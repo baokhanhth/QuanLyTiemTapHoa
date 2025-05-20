@@ -104,7 +104,7 @@ namespace QuanLiTiemTapHoa
             btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             btnClose.Size = new Size(50, 50);
             btnClose.TabIndex = 10;
-            btnClose.Click += btnClose_Click;
+            //btnClose.Click += btnClose_Click;
             // 
             // cpbDelete
             // 
@@ -274,4 +274,5 @@ namespace QuanLiTiemTapHoa
         private Guna.UI2.WinForms.Guna2CirclePictureBox cpbUpdate;
         private Guna.UI2.WinForms.Guna2CircleButton btnClose;
     }
-}
+} 
+#endregion 

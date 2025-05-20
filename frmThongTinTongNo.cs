@@ -6,18 +6,17 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyTiemTapHoa
 {
-    public partial class frmThongTinChiTietNo : Form
+    public partial class frmThongTinTongNo: Form
     {
         private readonly string _maNo;
         private const string Cnn =
             @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
-        public frmThongTinChiTietNo(string maNo)
+        public frmThongTinTongNo(string maNo)
         {
             _maNo = maNo;
             InitializeComponent();
@@ -36,7 +35,7 @@ namespace QuanLyTiemTapHoa
             {
                 using var cnn = new SqlConnection(Cnn);
                 using var cmd = new SqlCommand(
-                    "SELECT MaNo, MaBh, SoTienConNo FROM ChiTiet_No WHERE MaNo = @ma", cnn);
+                    "SELECT MaNo, MaKH, TongNo, TrangThai FROM TongNo WHERE MaNo = @ma", cnn);
 
                 cmd.Parameters.AddWithValue("@ma", _maNo);
 
@@ -50,12 +49,14 @@ namespace QuanLyTiemTapHoa
                 }
 
                 txtMaNo.Text = rd.GetString(0);
-                txtMaBH.Text = rd.GetString(1);
-                txtSoTienConNo.Text = rd.GetDecimal(2).ToString();
+                txtMaKH.Text = rd.GetString(1);
+                txtTongNo.Text = rd.GetDecimal(2).ToString();
+                txtTrangThai.Text = rd.GetString(3);
 
                 txtMaNo.ReadOnly = false;
-                txtSoTienConNo.ReadOnly = false;
-                txtMaBH.ReadOnly = false;
+                txtMaKH.ReadOnly = false;
+                txtTongNo.ReadOnly = false;
+                txtTrangThai.ReadOnly = false;
             }
             catch (Exception ex)
             {
@@ -64,26 +65,28 @@ namespace QuanLyTiemTapHoa
         }
 
         // 
-        //  Cập nhật chi tiết nợ
+        //  Cập nhật tổng nợ
         // 
         private void BtnUpdate_Click(object? sender, EventArgs e)
         {
             using var cnn = new SqlConnection(Cnn);
             const string sql =
-                "UPDATE ChiTiet_No " +
-                "SET MaNo=@mano, MaBh=@mabh, SoTienConNo=@stcn " +
+                "UPDATE TongNo " +
+                "SET MaNo=@mano, MaKH=@makh, TongNo=@tongno, TrangThai=@trangthai " +
                 "WHERE MaNo=@ma";
 
             using var cmd = new SqlCommand(sql, cnn);
             cmd.Parameters.AddWithValue("@mano", txtMaNo.Text.Trim());
-            cmd.Parameters.AddWithValue("@mabh", txtMaBH.Text.Trim());
+            cmd.Parameters.AddWithValue("@makh", txtMaKH.Text.Trim());
+            cmd.Parameters.AddWithValue("@tongno", txtTongNo.Text.Trim());
+            cmd.Parameters.AddWithValue("@trangthai", txtTrangThai.Text.Trim());
 
-            if (!decimal.TryParse(txtSoTienConNo.Text.Trim(), out var soTien))
+            if (!decimal.TryParse(txtTongNo.Text.Trim(), out var soTien))
             {
-                MessageBox.Show("Số tiền còn nợ không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tổng nợ không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            cmd.Parameters.AddWithValue("@stcn", soTien);
+            cmd.Parameters.AddWithValue("@tongno", soTien);
 
             cmd.Parameters.AddWithValue("@ma", _maNo);
 
@@ -91,19 +94,19 @@ namespace QuanLyTiemTapHoa
             int rows = cmd.ExecuteNonQuery();
 
             MessageBox.Show(rows > 0
-                    ? "Đã cập nhật chi tiết nợ."
+                    ? "Đã cập nhật tổng nợ."
                     : "Cập nhật không thành công.",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
         // 
-        //  Xóa CTN
+        //  Xóa tổng nợ
         // 
         private void BtnDelete_Click(object? sender, EventArgs e)
         {
             var confirm = MessageBox.Show(
-                "Bạn có chắc muốn xóa chi tiết nợ này?",
+                "Bạn có chắc muốn xóa tổng nợ này?",
                 "Xóa",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
@@ -112,7 +115,7 @@ namespace QuanLyTiemTapHoa
 
             using var cnn = new SqlConnection(Cnn);
             using var cmd = new SqlCommand(
-                "DELETE FROM ChiTiet_No WHERE MaNo = @ma", cnn);
+                "DELETE FROM TongNo WHERE MaNo = @ma", cnn);
 
             cmd.Parameters.AddWithValue("@ma", _maNo);
 
@@ -120,19 +123,19 @@ namespace QuanLyTiemTapHoa
             int rows = cmd.ExecuteNonQuery();
 
             MessageBox.Show(rows > 0
-                    ? "Đã xóa chi tiết nợ."
+                    ? "Đã xóa tổng nợ."
                     : "Xóa thất bại.",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             if (rows > 0) Close();
         }
 
-        private void txtSoTienConNo_TextChanged(object sender, EventArgs e)
+        private void txtTongNo_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtMaBH_TextChanged(object sender, EventArgs e)
+        private void txtMaKH_TextChanged(object sender, EventArgs e)
         {
 
         }

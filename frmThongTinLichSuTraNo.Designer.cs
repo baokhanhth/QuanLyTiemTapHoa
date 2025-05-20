@@ -1,14 +1,12 @@
-﻿using QuanLiTiemTapHoa;
-
-namespace QuanLyTiemTapHoa
+﻿namespace QuanLyTiemTapHoa
 {
-    partial class frmThongTinChiTietNo
+    partial class frmThongTinLichSuTraNo
     {
         private System.ComponentModel.IContainer components = null;
         private Guna.UI2.WinForms.Guna2GradientPanel pnlBackground;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNo;
-        private Guna.UI2.WinForms.Guna2TextBox txtMaBH;
-        private Guna.UI2.WinForms.Guna2TextBox txtSoTienConNo;
+        private Guna.UI2.WinForms.Guna2TextBox txtNgayTra;
+        private Guna.UI2.WinForms.Guna2TextBox txtSoTienTra;
         private System.Windows.Forms.Label lblTitle;
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
@@ -29,7 +27,7 @@ namespace QuanLyTiemTapHoa
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinChiTietNo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinLichSuTraNo));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -48,8 +46,8 @@ namespace QuanLyTiemTapHoa
             cpbDelete = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             cpbUpdate = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             txtMaNo = new Guna.UI2.WinForms.Guna2TextBox();
-            txtMaBH = new Guna.UI2.WinForms.Guna2TextBox();
-            txtSoTienConNo = new Guna.UI2.WinForms.Guna2TextBox();
+            txtNgayTra = new Guna.UI2.WinForms.Guna2TextBox();
+            txtSoTienTra = new Guna.UI2.WinForms.Guna2TextBox();
             lblTitle = new Label();
             btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             btnDelete = new Guna.UI2.WinForms.Guna2Button();
@@ -66,8 +64,8 @@ namespace QuanLyTiemTapHoa
             pnlBackground.Controls.Add(cpbDelete);
             pnlBackground.Controls.Add(cpbUpdate);
             pnlBackground.Controls.Add(txtMaNo);
-            pnlBackground.Controls.Add(txtMaBH);
-            pnlBackground.Controls.Add(txtSoTienConNo);
+            pnlBackground.Controls.Add(txtNgayTra);
+            pnlBackground.Controls.Add(txtSoTienTra);
             pnlBackground.Controls.Add(lblTitle);
             pnlBackground.Controls.Add(btnUpdate);
             pnlBackground.Controls.Add(btnDelete);
@@ -140,41 +138,41 @@ namespace QuanLyTiemTapHoa
             txtMaNo.Size = new Size(400, 40);
             txtMaNo.TabIndex = 0;
             // 
-            // txtMaBH
+            // txtNgayTra
             // 
-            txtMaBH.BorderRadius = 10;
-            txtMaBH.CustomizableEdges = customizableEdges6;
-            txtMaBH.DefaultText = "";
-            txtMaBH.Font = new Font("Open Sans Extrabold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtMaBH.ForeColor = Color.Black;
-            txtMaBH.Location = new Point(33, 241);
-            txtMaBH.Margin = new Padding(3, 4, 3, 4);
-            txtMaBH.Name = "txtMaBH";
-            txtMaBH.PlaceholderText = "Mã Bán Hàng";
-            txtMaBH.ReadOnly = true;
-            txtMaBH.SelectedText = "";
-            txtMaBH.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            txtMaBH.Size = new Size(400, 40);
-            txtMaBH.TabIndex = 1;
-            txtMaBH.TextChanged += txtMaBH_TextChanged;
+            txtNgayTra.BorderRadius = 10;
+            txtNgayTra.CustomizableEdges = customizableEdges6;
+            txtNgayTra.DefaultText = "";
+            txtNgayTra.Font = new Font("Open Sans Extrabold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtNgayTra.ForeColor = Color.Black;
+            txtNgayTra.Location = new Point(33, 241);
+            txtNgayTra.Margin = new Padding(3, 4, 3, 4);
+            txtNgayTra.Name = "txtNgayTra";
+            txtNgayTra.PlaceholderText = "Ngày Trả";
+            txtNgayTra.ReadOnly = true;
+            txtNgayTra.SelectedText = "";
+            txtNgayTra.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            txtNgayTra.Size = new Size(400, 40);
+            txtNgayTra.TabIndex = 1;
+            txtNgayTra.TextChanged += txtNgayTra_TextChanged;
             // 
-            // txtSoTienConNo
+            // txtSoTienTra
             // 
-            txtSoTienConNo.BorderRadius = 10;
-            txtSoTienConNo.CustomizableEdges = customizableEdges8;
-            txtSoTienConNo.DefaultText = "";
-            txtSoTienConNo.Font = new Font("Open Sans Extrabold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtSoTienConNo.ForeColor = Color.Black;
-            txtSoTienConNo.Location = new Point(33, 329);
-            txtSoTienConNo.Margin = new Padding(3, 4, 3, 4);
-            txtSoTienConNo.Name = "txtSoTienConNo";
-            txtSoTienConNo.PlaceholderText = "Số Tiền Còn Nợ";
-            txtSoTienConNo.ReadOnly = true;
-            txtSoTienConNo.SelectedText = "";
-            txtSoTienConNo.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            txtSoTienConNo.Size = new Size(400, 50);
-            txtSoTienConNo.TabIndex = 2;
-            txtSoTienConNo.TextChanged += txtSoTienConNo_TextChanged;
+            txtSoTienTra.BorderRadius = 10;
+            txtSoTienTra.CustomizableEdges = customizableEdges8;
+            txtSoTienTra.DefaultText = "";
+            txtSoTienTra.Font = new Font("Open Sans Extrabold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSoTienTra.ForeColor = Color.Black;
+            txtSoTienTra.Location = new Point(33, 329);
+            txtSoTienTra.Margin = new Padding(3, 4, 3, 4);
+            txtSoTienTra.Name = "txtSoTienTra";
+            txtSoTienTra.PlaceholderText = "Số Tiền Trả";
+            txtSoTienTra.ReadOnly = true;
+            txtSoTienTra.SelectedText = "";
+            txtSoTienTra.ShadowDecoration.CustomizableEdges = customizableEdges9;
+            txtSoTienTra.Size = new Size(400, 50);
+            txtSoTienTra.TabIndex = 2;
+            txtSoTienTra.TextChanged += txtSoTienTra_TextChanged;
             // 
             // lblTitle
             // 
@@ -186,7 +184,7 @@ namespace QuanLyTiemTapHoa
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(293, 32);
             lblTitle.TabIndex = 13;
-            lblTitle.Text = "THÔNG TIN CHI TIẾT NỢ";
+            lblTitle.Text = "THÔNG TIN LỊCH SỬ TRẢ NỢ";
             // 
             // btnUpdate
             // 
@@ -217,12 +215,12 @@ namespace QuanLyTiemTapHoa
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Xóa";
             // 
-            // frmThongTinChiTietNo
+            // frmThongTinLichSuTraNo
             // 
             ClientSize = new Size(500, 600);
             Controls.Add(pnlBackground);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmThongTinChiTietNo";
+            Name = "frmThongTinLichSuTraNo";
             StartPosition = FormStartPosition.CenterScreen;
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();
@@ -237,4 +235,3 @@ namespace QuanLyTiemTapHoa
         }
     }
 }
-

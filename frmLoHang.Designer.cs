@@ -1,14 +1,13 @@
-﻿// KhachHangForm.Designer.cs
-namespace QuanLyTiemTapHoa
+﻿namespace QuanLyTiemTapHoa
 {
-    partial class frmKhachHang
+    partial class frmLoHang
     {
         private System.ComponentModel.IContainer components = null;
         private Guna.UI2.WinForms.Guna2Panel panelSidebar;
         private Guna.UI2.WinForms.Guna2Panel panelContent;
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private Guna.UI2.WinForms.Guna2Button btnThem;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvKhachHang;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvLoHang;
         private Guna.UI2.WinForms.Guna2Button btnTrangChu;
         private Guna.UI2.WinForms.Guna2Button btnNhaCungCap;
         private Guna.UI2.WinForms.Guna2Button btnKhachHang;
@@ -31,7 +30,7 @@ namespace QuanLyTiemTapHoa
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhachHang));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoHang));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -98,11 +97,11 @@ namespace QuanLyTiemTapHoa
             btnChiTietNo = new Guna.UI2.WinForms.Guna2Button();
             panelContent = new Guna.UI2.WinForms.Guna2Panel();
             btnExit = new Guna.UI2.WinForms.Guna2CircleButton();
-            LabelKhachHang = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            lblLoHang = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2CirclePictureBox3 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             btnThem = new Guna.UI2.WinForms.Guna2Button();
-            dgvKhachHang = new Guna.UI2.WinForms.Guna2DataGridView();
+            dgvLoHang = new Guna.UI2.WinForms.Guna2DataGridView();
             panelSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cpbChiTietNo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cpbTongNo).BeginInit();
@@ -116,7 +115,7 @@ namespace QuanLyTiemTapHoa
             ((System.ComponentModel.ISupportInitialize)cpbHomePage).BeginInit();
             panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvKhachHang).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvLoHang).BeginInit();
             SuspendLayout();
             // 
             // panelSidebar
@@ -157,7 +156,6 @@ namespace QuanLyTiemTapHoa
             // 
             txtUser.BorderColor = Color.Transparent;
             txtUser.BorderRadius = 18;
-            txtUser.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
             txtUser.BorderThickness = 0;
             txtUser.CustomizableEdges = customizableEdges1;
             txtUser.DefaultText = "";
@@ -167,19 +165,21 @@ namespace QuanLyTiemTapHoa
             txtUser.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtUser.FillColor = Color.FromArgb(197, 186, 255);
             txtUser.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtUser.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtUser.ForeColor = Color.FromArgb(27, 20, 100);
+            txtUser.Font = new Font("Open Sans Extrabold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtUser.ForeColor = Color.Black;
             txtUser.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
             txtUser.IconLeft = (Image)resources.GetObject("txtUser.IconLeft");
             txtUser.IconLeftSize = new Size(74, 74);
             txtUser.Location = new Point(16, 46);
             txtUser.Margin = new Padding(3, 4, 3, 4);
             txtUser.Name = "txtUser";
-            txtUser.PlaceholderText = "Người dùng";
+            txtUser.PlaceholderForeColor = Color.FromArgb(0, 0, 64);
+            txtUser.PlaceholderText = "CHỦ TIỆM";
             txtUser.SelectedText = "";
             txtUser.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtUser.Size = new Size(306, 78);
+            txtUser.Size = new Size(300, 78);
             txtUser.TabIndex = 19;
+            txtUser.TextChanged += txtUser_TextChanged;
             // 
             // cpbChiTietNo
             // 
@@ -517,11 +517,11 @@ namespace QuanLyTiemTapHoa
             panelContent.AutoScroll = true;
             panelContent.BackColor = Color.FromArgb(196, 217, 255);
             panelContent.Controls.Add(btnExit);
-            panelContent.Controls.Add(LabelKhachHang);
+            panelContent.Controls.Add(lblLoHang);
             panelContent.Controls.Add(guna2CirclePictureBox3);
             panelContent.Controls.Add(txtTimKiem);
             panelContent.Controls.Add(btnThem);
-            panelContent.Controls.Add(dgvKhachHang);
+            panelContent.Controls.Add(dgvLoHang);
             panelContent.CustomizableEdges = customizableEdges41;
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(0, 0);
@@ -529,6 +529,7 @@ namespace QuanLyTiemTapHoa
             panelContent.ShadowDecoration.CustomizableEdges = customizableEdges42;
             panelContent.Size = new Size(1920, 1055);
             panelContent.TabIndex = 1;
+            panelContent.Paint += panelContent_Paint;
             // 
             // btnExit
             // 
@@ -550,16 +551,16 @@ namespace QuanLyTiemTapHoa
             btnExit.TabIndex = 21;
             btnExit.Click += btnExit_Click;
             // 
-            // LabelKhachHang
+            // lblLoHang
             // 
-            LabelKhachHang.BackColor = Color.Transparent;
-            LabelKhachHang.Font = new Font("Open Sans Extrabold", 31.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LabelKhachHang.ForeColor = Color.FromArgb(27, 20, 100);
-            LabelKhachHang.Location = new Point(996, 46);
-            LabelKhachHang.Name = "LabelKhachHang";
-            LabelKhachHang.Size = new Size(369, 75);
-            LabelKhachHang.TabIndex = 13;
-            LabelKhachHang.Text = "KHÁCH HÀNG";
+            lblLoHang.BackColor = Color.Transparent;
+            lblLoHang.Font = new Font("Open Sans Extrabold", 31.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblLoHang.ForeColor = Color.FromArgb(27, 20, 100);
+            lblLoHang.Location = new Point(996, 46);
+            lblLoHang.Name = "lblLoHang";
+            lblLoHang.Size = new Size(252, 75);
+            lblLoHang.TabIndex = 13;
+            lblLoHang.Text = "LÔ HÀNG";
             // 
             // guna2CirclePictureBox3
             // 
@@ -594,6 +595,7 @@ namespace QuanLyTiemTapHoa
             txtTimKiem.ShadowDecoration.CustomizableEdges = customizableEdges38;
             txtTimKiem.Size = new Size(722, 58);
             txtTimKiem.TabIndex = 0;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
             // 
             // btnThem
             // 
@@ -612,14 +614,14 @@ namespace QuanLyTiemTapHoa
             btnThem.TextAlign = HorizontalAlignment.Right;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvKhachHang
+            // dgvLoHang
             // 
-            dgvKhachHang.AllowUserToAddRows = false;
-            dgvKhachHang.AllowUserToDeleteRows = false;
+            dgvLoHang.AllowUserToAddRows = false;
+            dgvLoHang.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
-            dgvKhachHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dgvKhachHang.BorderStyle = BorderStyle.FixedSingle;
-            dgvKhachHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvLoHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvLoHang.BorderStyle = BorderStyle.FixedSingle;
+            dgvLoHang.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -627,8 +629,8 @@ namespace QuanLyTiemTapHoa
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvKhachHang.ColumnHeadersHeight = 29;
+            dgvLoHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvLoHang.ColumnHeadersHeight = 29;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -636,44 +638,45 @@ namespace QuanLyTiemTapHoa
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvKhachHang.GridColor = Color.FromArgb(231, 229, 255);
-            dgvKhachHang.Location = new Point(391, 323);
-            dgvKhachHang.Name = "dgvKhachHang";
-            dgvKhachHang.ReadOnly = true;
-            dgvKhachHang.RowHeadersVisible = false;
-            dgvKhachHang.RowHeadersWidth = 51;
-            dgvKhachHang.Size = new Size(1465, 1160);
-            dgvKhachHang.TabIndex = 2;
-            dgvKhachHang.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            dgvKhachHang.ThemeStyle.AlternatingRowsStyle.Font = null;
-            dgvKhachHang.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            dgvKhachHang.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            dgvKhachHang.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            dgvKhachHang.ThemeStyle.BackColor = Color.White;
-            dgvKhachHang.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            dgvKhachHang.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            dgvKhachHang.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dgvKhachHang.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            dgvKhachHang.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvKhachHang.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvKhachHang.ThemeStyle.HeaderStyle.Height = 29;
-            dgvKhachHang.ThemeStyle.ReadOnly = true;
-            dgvKhachHang.ThemeStyle.RowsStyle.BackColor = Color.White;
-            dgvKhachHang.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgvKhachHang.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            dgvKhachHang.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            dgvKhachHang.ThemeStyle.RowsStyle.Height = 29;
-            dgvKhachHang.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dgvKhachHang.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvLoHang.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvLoHang.GridColor = Color.FromArgb(231, 229, 255);
+            dgvLoHang.Location = new Point(391, 323);
+            dgvLoHang.Name = "dgvLoHang";
+            dgvLoHang.ReadOnly = true;
+            dgvLoHang.RowHeadersVisible = false;
+            dgvLoHang.RowHeadersWidth = 51;
+            dgvLoHang.Size = new Size(1465, 1160);
+            dgvLoHang.TabIndex = 2;
+            dgvLoHang.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvLoHang.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvLoHang.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvLoHang.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvLoHang.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvLoHang.ThemeStyle.BackColor = Color.White;
+            dgvLoHang.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvLoHang.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvLoHang.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgvLoHang.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dgvLoHang.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvLoHang.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvLoHang.ThemeStyle.HeaderStyle.Height = 29;
+            dgvLoHang.ThemeStyle.ReadOnly = true;
+            dgvLoHang.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvLoHang.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvLoHang.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dgvLoHang.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvLoHang.ThemeStyle.RowsStyle.Height = 29;
+            dgvLoHang.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvLoHang.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvLoHang.CellContentClick += dgvLoHang_CellContentClick;
             // 
-            // frmKhachHang
+            // frmLoHang
             // 
             ClientSize = new Size(1920, 1055);
             Controls.Add(panelSidebar);
             Controls.Add(panelContent);
-            Name = "frmKhachHang";
-            Text = "Khách Hàng";
+            Name = "frmLoHang";
+            Text = "Lô Hàng";
             WindowState = FormWindowState.Maximized;
             panelSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cpbChiTietNo).EndInit();
@@ -689,7 +692,7 @@ namespace QuanLyTiemTapHoa
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)guna2CirclePictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvKhachHang).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvLoHang).EndInit();
             ResumeLayout(false);
         }
 
@@ -705,7 +708,7 @@ namespace QuanLyTiemTapHoa
         private Guna.UI2.WinForms.Guna2CirclePictureBox cpbLoHang;
         private Guna.UI2.WinForms.Guna2CirclePictureBox cpbHangHoa;
         private Guna.UI2.WinForms.Guna2TextBox txtUser;
-        private Guna.UI2.WinForms.Guna2HtmlLabel LabelKhachHang;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblLoHang;
         private Guna.UI2.WinForms.Guna2CircleButton btnExit;
     }
 }

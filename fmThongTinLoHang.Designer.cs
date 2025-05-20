@@ -7,11 +7,10 @@ namespace QuanLiTiemTapHoa
 
         // UI Controls
         private Guna.UI2.WinForms.Guna2GradientPanel pnlBackground;
-        private Guna.UI2.WinForms.Guna2TextBox txtNgaySX;
-        private Guna.UI2.WinForms.Guna2TextBox txtHSD;
-        private Guna.UI2.WinForms.Guna2TextBox txtSoLuongDongGoi;
-        private Guna.UI2.WinForms.Guna2TextBox txtMaHang;
+        private Guna.UI2.WinForms.Guna2DateTimePicker txtNgaySX;
+        private Guna.UI2.WinForms.Guna2DateTimePicker txtHSD;
         private Guna.UI2.WinForms.Guna2TextBox txtMaLo;
+        private Guna.UI2.WinForms.Guna2TextBox txtMaHang;
         private System.Windows.Forms.Label lblTitle;
         private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
@@ -28,11 +27,9 @@ namespace QuanLiTiemTapHoa
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinLoHang));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -46,18 +43,22 @@ namespace QuanLiTiemTapHoa
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnClose = new Guna.UI2.WinForms.Guna2CircleButton();
             cpbDelete = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             cpbUpdate = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            txtNgaySX = new Guna.UI2.WinForms.Guna2TextBox();
-            txtHSD = new Guna.UI2.WinForms.Guna2TextBox();
-            txtSoLuongDongGoi = new Guna.UI2.WinForms.Guna2TextBox();
-            txtMaHang = new Guna.UI2.WinForms.Guna2TextBox();
+            txtNgaySX = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            txtHSD = new Guna.UI2.WinForms.Guna2DateTimePicker();
             txtMaLo = new Guna.UI2.WinForms.Guna2TextBox();
+            txtMaHang = new Guna.UI2.WinForms.Guna2TextBox();
             lblTitle = new Label();
             btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             btnDelete = new Guna.UI2.WinForms.Guna2Button();
+            txtSoLuongDongGoi = new Guna.UI2.WinForms.Guna2TextBox();
             pnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cpbDelete).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cpbUpdate).BeginInit();
@@ -67,24 +68,24 @@ namespace QuanLiTiemTapHoa
             // 
             pnlBackground.BackColor = Color.Transparent;
             pnlBackground.BorderRadius = 20;
+            pnlBackground.Controls.Add(txtSoLuongDongGoi);
             pnlBackground.Controls.Add(btnClose);
             pnlBackground.Controls.Add(cpbDelete);
             pnlBackground.Controls.Add(cpbUpdate);
             pnlBackground.Controls.Add(txtNgaySX);
             pnlBackground.Controls.Add(txtHSD);
-            pnlBackground.Controls.Add(txtSoLuongDongGoi);
-            pnlBackground.Controls.Add(txtMaHang);
             pnlBackground.Controls.Add(txtMaLo);
+            pnlBackground.Controls.Add(txtMaHang);
             pnlBackground.Controls.Add(lblTitle);
             pnlBackground.Controls.Add(btnUpdate);
             pnlBackground.Controls.Add(btnDelete);
-            pnlBackground.CustomizableEdges = customizableEdges16;
+            pnlBackground.CustomizableEdges = customizableEdges18;
             pnlBackground.Dock = DockStyle.Fill;
             pnlBackground.FillColor = Color.Violet;
             pnlBackground.FillColor2 = Color.PowderBlue;
             pnlBackground.Location = new Point(0, 0);
             pnlBackground.Name = "pnlBackground";
-            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges19;
             pnlBackground.Size = new Size(500, 600);
             pnlBackground.TabIndex = 0;
             // 
@@ -102,7 +103,7 @@ namespace QuanLiTiemTapHoa
             btnClose.ImageSize = new Size(50, 50);
             btnClose.Location = new Point(438, 12);
             btnClose.Name = "btnClose";
-            btnClose.ShadowDecoration.CustomizableEdges = customizableEdges1;
+            btnClose.ShadowDecoration.CustomizableEdges = customizableEdges3;
             btnClose.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             btnClose.Size = new Size(50, 50);
             btnClose.TabIndex = 10;
@@ -112,9 +113,9 @@ namespace QuanLiTiemTapHoa
             cpbDelete.FillColor = Color.Transparent;
             cpbDelete.Image = (Image)resources.GetObject("cpbDelete.Image");
             cpbDelete.ImageRotate = 0F;
-            cpbDelete.Location = new Point(280, 408);
+            cpbDelete.Location = new Point(282, 487);
             cpbDelete.Name = "cpbDelete";
-            cpbDelete.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            cpbDelete.ShadowDecoration.CustomizableEdges = customizableEdges4;
             cpbDelete.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             cpbDelete.Size = new Size(38, 38);
             cpbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -128,9 +129,9 @@ namespace QuanLiTiemTapHoa
             cpbUpdate.FillColor = Color.Transparent;
             cpbUpdate.Image = (Image)resources.GetObject("cpbUpdate.Image");
             cpbUpdate.ImageRotate = 0F;
-            cpbUpdate.Location = new Point(56, 407);
+            cpbUpdate.Location = new Point(58, 486);
             cpbUpdate.Name = "cpbUpdate";
-            cpbUpdate.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            cpbUpdate.ShadowDecoration.CustomizableEdges = customizableEdges5;
             cpbUpdate.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             cpbUpdate.Size = new Size(40, 40);
             cpbUpdate.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -141,96 +142,70 @@ namespace QuanLiTiemTapHoa
             // 
             // txtNgaySX
             // 
+            // 
+            // txtNgaySX
+            // 
             txtNgaySX.BorderRadius = 10;
-            txtNgaySX.CustomizableEdges = customizableEdges4;
-            txtNgaySX.DefaultText = "";
+            txtNgaySX.Checked = true;
             txtNgaySX.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtNgaySX.ForeColor = Color.Black;
-            txtNgaySX.Location = new Point(50, 235);
+            txtNgaySX.Format = DateTimePickerFormat.Short;
+            txtNgaySX.Location = new Point(100, 258);
             txtNgaySX.Margin = new Padding(3, 4, 3, 4);
-            txtNgaySX.Multiline = true;
             txtNgaySX.Name = "txtNgaySX";
-            txtNgaySX.PlaceholderForeColor = Color.Black;
-            txtNgaySX.PlaceholderText = "NgaySX";
-            txtNgaySX.ReadOnly = true;
-            txtNgaySX.SelectedText = "";
-            txtNgaySX.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            txtNgaySX.Size = new Size(400, 80);
+            txtNgaySX.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtNgaySX.Size = new Size(300, 40);
             txtNgaySX.TabIndex = 0;
-            // 
             // txtHSD
             // 
             txtHSD.BorderRadius = 10;
-            txtHSD.CustomizableEdges = customizableEdges6;
-            txtHSD.DefaultText = "";
+            txtHSD.Checked = true;
             txtHSD.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtHSD.ForeColor = Color.Black;
-            txtHSD.Location = new Point(50, 342);
+            txtHSD.Format = DateTimePickerFormat.Short;
+            txtHSD.Location = new Point(100, 332);
             txtHSD.Margin = new Padding(3, 4, 3, 4);
             txtHSD.Name = "txtHSD";
-            txtHSD.PlaceholderForeColor = Color.Black;
-            txtHSD.PlaceholderText = "Hạn Sử Dụng";
-            txtHSD.ReadOnly = true;
-            txtHSD.SelectedText = "";
             txtHSD.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            txtHSD.Size = new Size(400, 35);
+            txtHSD.Size = new Size(300, 40);
             txtHSD.TabIndex = 1;
-            // 
-            // txtSoLuongDongGoi
-            // 
-            txtSoLuongDongGoi.AutoSize = true;
-            txtSoLuongDongGoi.BorderRadius = 10;
-            txtSoLuongDongGoi.CustomizableEdges = customizableEdges8;
-            txtSoLuongDongGoi.DefaultText = "";
-            txtSoLuongDongGoi.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtSoLuongDongGoi.ForeColor = Color.Black;
-            txtSoLuongDongGoi.Location = new Point(50, 109);
-            txtSoLuongDongGoi.Margin = new Padding(3, 4, 3, 4);
-            txtSoLuongDongGoi.Name = "txtSoLuongDongGoi";
-            txtSoLuongDongGoi.PlaceholderForeColor = Color.Black;
-            txtSoLuongDongGoi.PlaceholderText = "Mã Lô Hàng";
-            txtSoLuongDongGoi.ReadOnly = true;
-            txtSoLuongDongGoi.SelectedText = "";
-            txtSoLuongDongGoi.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            txtSoLuongDongGoi.Size = new Size(573, 38);
-            txtSoLuongDongGoi.TabIndex = 3;
-            // 
-            // txtMaHang
-            // 
-            txtMaHang.BorderRadius = 10;
-            txtMaHang.CustomizableEdges = customizableEdges10;
-            txtMaHang.DefaultText = "";
-            txtMaHang.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtMaHang.ForeColor = Color.Black;
-            txtMaHang.Location = new Point(50, 171);
-            txtMaHang.Margin = new Padding(3, 4, 3, 4);
-            txtMaHang.Name = "txtMaHang";
-            txtMaHang.PlaceholderForeColor = Color.Black;
-            txtMaHang.PlaceholderText = "Mã Hàng Hoá";
-            txtMaHang.ReadOnly = true;
-            txtMaHang.SelectedText = "";
-            txtMaHang.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            txtMaHang.Size = new Size(400, 37);
-            txtMaHang.TabIndex = 2;
             // 
             // txtMaLo
             // 
             txtMaLo.AutoSize = true;
             txtMaLo.BorderRadius = 10;
-            txtMaLo.CustomizableEdges = customizableEdges8;
+            txtMaLo.CustomizableEdges = customizableEdges10;
             txtMaLo.DefaultText = "";
             txtMaLo.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMaLo.ForeColor = Color.Black;
-            txtMaLo.Location = new Point(50, 109);
+            txtMaLo.Location = new Point(100, 108);
             txtMaLo.Margin = new Padding(3, 4, 3, 4);
             txtMaLo.Name = "txtMaLo";
             txtMaLo.PlaceholderForeColor = Color.Black;
             txtMaLo.PlaceholderText = "Mã Lô Hàng";
             txtMaLo.ReadOnly = true;
             txtMaLo.SelectedText = "";
-            txtMaLo.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            txtMaLo.Size = new Size(400, 37);
+            txtMaLo.ShadowDecoration.CustomizableEdges = customizableEdges11;
+            txtMaLo.Size = new Size(300, 40);
             txtMaLo.TabIndex = 3;
+            // 
+            // txtMaHang
+            // 
+            txtMaHang.BorderRadius = 10;
+            txtMaHang.CustomizableEdges = customizableEdges12;
+            txtMaHang.DefaultText = "";
+            txtMaHang.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtMaHang.ForeColor = Color.Black;
+            txtMaHang.Location = new Point(100, 186);
+            txtMaHang.Margin = new Padding(3, 4, 3, 4);
+            txtMaHang.Name = "txtMaHang";
+            txtMaHang.PlaceholderForeColor = Color.Black;
+            txtMaHang.PlaceholderText = "Mã Hàng Hoá";
+            txtMaHang.ReadOnly = true;
+            txtMaHang.SelectedText = "";
+            txtMaHang.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            txtMaHang.Size = new Size(300, 40);
+            txtMaHang.TabIndex = 2;
             // 
             // lblTitle
             // 
@@ -238,7 +213,7 @@ namespace QuanLiTiemTapHoa
             lblTitle.BackColor = Color.Transparent;
             lblTitle.Font = new Font("Open Sans Extrabold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.FromArgb(27, 20, 100);
-            lblTitle.Location = new Point(80, 30);
+            lblTitle.Location = new Point(110, 30);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(261, 32);
             lblTitle.TabIndex = 4;
@@ -248,13 +223,13 @@ namespace QuanLiTiemTapHoa
             // 
             btnUpdate.BackColor = Color.Transparent;
             btnUpdate.BorderRadius = 18;
-            btnUpdate.CustomizableEdges = customizableEdges12;
+            btnUpdate.CustomizableEdges = customizableEdges14;
             btnUpdate.FillColor = Color.White;
             btnUpdate.Font = new Font("Open Sans Extrabold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUpdate.ForeColor = Color.FromArgb(27, 20, 100);
-            btnUpdate.Location = new Point(56, 407);
+            btnUpdate.Location = new Point(58, 486);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            btnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges15;
             btnUpdate.Size = new Size(160, 40);
             btnUpdate.TabIndex = 6;
             btnUpdate.Text = "Cập Nhật";
@@ -264,18 +239,35 @@ namespace QuanLiTiemTapHoa
             // 
             btnDelete.BackColor = Color.Transparent;
             btnDelete.BorderRadius = 18;
-            btnDelete.CustomizableEdges = customizableEdges14;
+            btnDelete.CustomizableEdges = customizableEdges16;
             btnDelete.FillColor = Color.White;
             btnDelete.Font = new Font("Open Sans Extrabold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDelete.ForeColor = Color.FromArgb(27, 20, 100);
-            btnDelete.Location = new Point(273, 407);
+            btnDelete.Location = new Point(275, 486);
             btnDelete.Name = "btnDelete";
-            btnDelete.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            btnDelete.ShadowDecoration.CustomizableEdges = customizableEdges17;
             btnDelete.Size = new Size(160, 40);
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Xóa";
             btnDelete.TextAlign = HorizontalAlignment.Right;
-            btnDelete.Click += this.btnDelete_Click_1;
+            // 
+            // txtSoLuongDongGoi
+            // 
+            txtSoLuongDongGoi.BorderRadius = 10;
+            txtSoLuongDongGoi.CustomizableEdges = customizableEdges1;
+            txtSoLuongDongGoi.DefaultText = "";
+            txtSoLuongDongGoi.Font = new Font("Open Sans Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSoLuongDongGoi.ForeColor = Color.Black;
+            txtSoLuongDongGoi.Location = new Point(100, 400);
+            txtSoLuongDongGoi.Margin = new Padding(3, 4, 3, 4);
+            txtSoLuongDongGoi.Name = "txtSoLuongDongGoi";
+            txtSoLuongDongGoi.PlaceholderForeColor = Color.Black;
+            txtSoLuongDongGoi.PlaceholderText = "Hạn Sử Dụng";
+            txtSoLuongDongGoi.ReadOnly = true;
+            txtSoLuongDongGoi.SelectedText = "";
+            txtSoLuongDongGoi.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            txtSoLuongDongGoi.Size = new Size(300, 40);
+            txtSoLuongDongGoi.TabIndex = 11;
             // 
             // frmThongTinLoHang
             // 
@@ -293,11 +285,13 @@ namespace QuanLiTiemTapHoa
 
         private void SuspendLayout()
         {
-            
+
         }
 
         private Guna.UI2.WinForms.Guna2CirclePictureBox cpbDelete;
         private Guna.UI2.WinForms.Guna2CirclePictureBox cpbUpdate;
         private Guna.UI2.WinForms.Guna2CircleButton btnClose;
+        private Guna.UI2.WinForms.Guna2TextBox txtSoLuongDongGoi;
     }
 }
+#endregion

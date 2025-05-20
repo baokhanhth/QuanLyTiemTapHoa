@@ -1,9 +1,8 @@
 {
   "profiles": {
     "QuanLyTiemTapHoa": {
-      "commandName": "Project",
-      "workingDirectory": "C:\\Users\\nguye\\OneDrive\\Documents\\CSDL\\github",
-      "remoteDebugEnabled": true
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\nguye\\OneDrive\\Documents\\CSDL\\github\\bin\\Debug\\net8.0-windows\\QuanLyTiemTapHoa.exe"
     }
   }
 }
