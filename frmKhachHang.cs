@@ -27,5 +27,20 @@ namespace QuanLyTiemTapHoa
             frmThemKhachHang themForm = new frmThemKhachHang();
             themForm.ShowDialog();
         }
+
+        private void frmKhachHang_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnKhachHang_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

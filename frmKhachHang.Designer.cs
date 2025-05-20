@@ -8,7 +8,6 @@ namespace QuanLyTiemTapHoa
         private Guna.UI2.WinForms.Guna2Panel panelContent;
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private Guna.UI2.WinForms.Guna2Button btnThem;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvKhachHang;
         private Guna.UI2.WinForms.Guna2Button btnTrangChu;
         private Guna.UI2.WinForms.Guna2Button btnNhaCungCap;
         private Guna.UI2.WinForms.Guna2Button btnKhachHang;
@@ -150,7 +149,7 @@ namespace QuanLyTiemTapHoa
             panelSidebar.Location = new Point(0, 0);
             panelSidebar.Name = "panelSidebar";
             panelSidebar.ShadowDecoration.CustomizableEdges = customizableEdges34;
-            panelSidebar.Size = new Size(350, 1055);
+            panelSidebar.Size = new Size(350, 865);
             panelSidebar.TabIndex = 0;
             // 
             // txtUser
@@ -392,6 +391,7 @@ namespace QuanLyTiemTapHoa
             btnKhachHang.Text = "Khách Hàng";
             btnKhachHang.TextOffset = new Point(34, 0);
             btnKhachHang.UseTransparentBackground = true;
+            btnKhachHang.Click += btnKhachHang_Click;
             // 
             // btnHangHoa
             // 
@@ -515,6 +515,7 @@ namespace QuanLyTiemTapHoa
             // 
             panelContent.AutoScroll = true;
             panelContent.BackColor = Color.FromArgb(196, 217, 255);
+            panelContent.BackgroundImageLayout = ImageLayout.Stretch;
             panelContent.Controls.Add(btnExit);
             panelContent.Controls.Add(LabelKhachHang);
             panelContent.Controls.Add(guna2CirclePictureBox3);
@@ -526,8 +527,9 @@ namespace QuanLyTiemTapHoa
             panelContent.Location = new Point(0, 0);
             panelContent.Name = "panelContent";
             panelContent.ShadowDecoration.CustomizableEdges = customizableEdges42;
-            panelContent.Size = new Size(1920, 1055);
+            panelContent.Size = new Size(1577, 865);
             panelContent.TabIndex = 1;
+            panelContent.Paint += panelContent_Paint;
             // 
             // btnExit
             // 
@@ -637,6 +639,7 @@ namespace QuanLyTiemTapHoa
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvKhachHang.DefaultCellStyle = dataGridViewCellStyle3;
             dgvKhachHang.GridColor = Color.FromArgb(231, 229, 255);
+            dgvKhachHang.ImeMode = ImeMode.NoControl;
             dgvKhachHang.Location = new Point(391, 323);
             dgvKhachHang.Name = "dgvKhachHang";
             dgvKhachHang.ReadOnly = true;
@@ -668,12 +671,13 @@ namespace QuanLyTiemTapHoa
             // 
             // frmKhachHang
             // 
-            ClientSize = new Size(1920, 1055);
+            ClientSize = new Size(1577, 865);
             Controls.Add(panelSidebar);
             Controls.Add(panelContent);
             Name = "frmKhachHang";
             Text = "Khách Hàng";
             WindowState = FormWindowState.Maximized;
+            Load += frmKhachHang_Load;
             panelSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cpbChiTietNo).EndInit();
             ((System.ComponentModel.ISupportInitialize)cpbTongNo).EndInit();
@@ -706,5 +710,6 @@ namespace QuanLyTiemTapHoa
         private Guna.UI2.WinForms.Guna2TextBox txtUser;
         private Guna.UI2.WinForms.Guna2HtmlLabel LabelKhachHang;
         private Guna.UI2.WinForms.Guna2CircleButton btnExit;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvKhachHang;
     }
 }

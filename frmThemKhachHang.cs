@@ -14,7 +14,7 @@ namespace QuanLyTiemTapHoa
     public partial class frmThemKhachHang : Form
     {
         private const string Cnn =
-            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;Intergrated Security=True; TrustServerCertificate=True";
+            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;Integrated Security=True; TrustServerCertificate=True";
         public frmThemKhachHang()
         {
             InitializeComponent();
