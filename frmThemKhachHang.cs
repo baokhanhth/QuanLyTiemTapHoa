@@ -38,12 +38,6 @@ namespace QuanLyTiemTapHoa
             cmd.Parameters.AddWithValue("@sdt", txtSDT.Text.Trim());
             cmd.Parameters.AddWithValue("@dc", txtDiaChi.Text.Trim());
 
-
-
-
-
-
-
             try
             {
                 cnn.Open();

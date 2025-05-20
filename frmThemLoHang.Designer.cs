@@ -304,13 +304,13 @@
             btThem.ForeColor = Color.Black;
             btThem.Image = (Image)resources.GetObject("btThem.Image");
             btThem.ImageSize = new Size(40, 40);
-            btThem.Location = new Point(192, 494);
+            btThem.Location = new Point(189, 494);
             btThem.Name = "btThem";
             btThem.ShadowDecoration.CustomizableEdges = customizableEdges18;
             btThem.Size = new Size(137, 54);
             btThem.TabIndex = 3;
             btThem.Text = "Thêm";
-            //btThem.Click += btThem.Click;
+            btThem.Click += btThem_Click;
             // 
             // btnClose
             // 

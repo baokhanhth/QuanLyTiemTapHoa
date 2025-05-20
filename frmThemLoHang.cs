@@ -13,9 +13,9 @@ namespace QuanLyTiemTapHoa
 {
     public partial class frmThemLoHang : Form
     {
+
         private const string Cnn =
-            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;Intergrated Security=True; TrustServerCertificate=True";
-        //private const string Cnn = @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;Integrated Security=True;TrustServerCertificate=True";
+             @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;Integrated Security=True; TrustServerCertificate=True";
         public frmThemLoHang()
         {
             InitializeComponent();
@@ -36,7 +36,19 @@ namespace QuanLyTiemTapHoa
 
         }
 
-        private void btnThem_Click(object sender, EventArgs e)
+        
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btThem_Click(object sender, EventArgs e)
         {
             using var cnn = new SqlConnection(Cnn);
             const string sql = "INSERT INTO Lo Hang (MaLo, MaHang, NgaySX,HSD,SoLuongDongGoi)" +
@@ -65,16 +77,6 @@ namespace QuanLyTiemTapHoa
             {
                 MessageBox.Show("Lỗi khi thêm khách hàng");
             }
-        }
-
-        private void guna2CircleButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
