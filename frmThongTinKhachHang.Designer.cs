@@ -11,7 +11,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTenKH;
         private Guna.UI2.WinForms.Guna2TextBox txtMaKH;
         private System.Windows.Forms.Label lblTitle;
-        private Guna.UI2.WinForms.Guna2Button btnUpdate;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2Button btnClose;
 
@@ -27,9 +26,8 @@
         #region Windows Form Designer generated code
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinKhachHang));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -44,85 +42,102 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThongTinKhachHang));
             pnlBackground = new Guna.UI2.WinForms.Guna2GradientPanel();
-            cpbDelete = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            cpbUpdate = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            tbtnUpdate = new Guna.UI2.WinForms.Guna2GradientTileButton();
+            tbtnDelete = new Guna.UI2.WinForms.Guna2GradientTileButton();
             txtDiaChi = new Guna.UI2.WinForms.Guna2TextBox();
             txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
             txtTenKH = new Guna.UI2.WinForms.Guna2TextBox();
             txtMaKH = new Guna.UI2.WinForms.Guna2TextBox();
             lblTitle = new Label();
             btnClose = new Guna.UI2.WinForms.Guna2Button();
-            btnUpdate = new Guna.UI2.WinForms.Guna2Button();
-            btnDelete = new Guna.UI2.WinForms.Guna2Button();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             pnlBackground.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)cpbDelete).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)cpbUpdate).BeginInit();
             SuspendLayout();
             // 
             // pnlBackground
             // 
             pnlBackground.BackColor = Color.Transparent;
             pnlBackground.BorderRadius = 20;
-            pnlBackground.Controls.Add(cpbDelete);
-            pnlBackground.Controls.Add(cpbUpdate);
+            pnlBackground.Controls.Add(tbtnUpdate);
+            pnlBackground.Controls.Add(tbtnDelete);
             pnlBackground.Controls.Add(txtDiaChi);
             pnlBackground.Controls.Add(txtSDT);
             pnlBackground.Controls.Add(txtTenKH);
             pnlBackground.Controls.Add(txtMaKH);
             pnlBackground.Controls.Add(lblTitle);
             pnlBackground.Controls.Add(btnClose);
-            pnlBackground.Controls.Add(btnUpdate);
-            pnlBackground.Controls.Add(btnDelete);
-            pnlBackground.CustomizableEdges = customizableEdges17;
+            pnlBackground.CustomizableEdges = customizableEdges15;
             pnlBackground.Dock = DockStyle.Fill;
             pnlBackground.FillColor = Color.Violet;
             pnlBackground.FillColor2 = Color.PowderBlue;
             pnlBackground.Location = new Point(0, 0);
             pnlBackground.Name = "pnlBackground";
-            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            pnlBackground.ShadowDecoration.CustomizableEdges = customizableEdges16;
             pnlBackground.Size = new Size(500, 600);
             pnlBackground.TabIndex = 0;
             // 
-            // cpbDelete
+            // tbtnUpdate
             // 
-            cpbDelete.FillColor = Color.Transparent;
-            cpbDelete.Image = (Image)resources.GetObject("cpbDelete.Image");
-            cpbDelete.ImageLocation = "0";
-            cpbDelete.ImageRotate = 0F;
-            cpbDelete.Location = new Point(290, 408);
-            cpbDelete.Name = "cpbDelete";
-            cpbDelete.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            cpbDelete.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            cpbDelete.Size = new Size(38, 38);
-            cpbDelete.SizeMode = PictureBoxSizeMode.StretchImage;
-            cpbDelete.TabIndex = 9;
-            cpbDelete.TabStop = false;
-            cpbDelete.UseTransparentBackground = true;
+            tbtnUpdate.BackColor = Color.Transparent;
+            tbtnUpdate.BorderColor = Color.Transparent;
+            tbtnUpdate.BorderRadius = 18;
+            tbtnUpdate.CustomizableEdges = customizableEdges1;
+            tbtnUpdate.DisabledState.BorderColor = Color.DarkGray;
+            tbtnUpdate.DisabledState.CustomBorderColor = Color.DarkGray;
+            tbtnUpdate.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            tbtnUpdate.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            tbtnUpdate.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            tbtnUpdate.FillColor = Color.White;
+            tbtnUpdate.FillColor2 = Color.White;
+            tbtnUpdate.Font = new Font("Open Sans ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tbtnUpdate.ForeColor = Color.FromArgb(28, 76, 119);
+            tbtnUpdate.Image = Properties.Resources.updated;
+            tbtnUpdate.ImageAlign = HorizontalAlignment.Left;
+            tbtnUpdate.ImageOffset = new Point(0, 22);
+            tbtnUpdate.ImageSize = new Size(40, 40);
+            tbtnUpdate.ImeMode = ImeMode.NoControl;
+            tbtnUpdate.Location = new Point(61, 407);
+            tbtnUpdate.Name = "tbtnUpdate";
+            tbtnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            tbtnUpdate.Size = new Size(160, 40);
+            tbtnUpdate.TabIndex = 26;
+            tbtnUpdate.Text = "Cập nhật";
+            tbtnUpdate.TextOffset = new Point(25, -25);
             // 
-            // cpbUpdate
+            // tbtnDelete
             // 
-            cpbUpdate.FillColor = Color.Transparent;
-            cpbUpdate.Image = Properties.Resources.updated;
-            cpbUpdate.ImageRotate = 0F;
-            cpbUpdate.Location = new Point(56, 407);
-            cpbUpdate.Name = "cpbUpdate";
-            cpbUpdate.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            cpbUpdate.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            cpbUpdate.Size = new Size(40, 40);
-            cpbUpdate.SizeMode = PictureBoxSizeMode.StretchImage;
-            cpbUpdate.TabIndex = 8;
-            cpbUpdate.TabStop = false;
-            cpbUpdate.UseTransparentBackground = true;
-            cpbUpdate.UseWaitCursor = true;
+            tbtnDelete.BackColor = Color.Transparent;
+            tbtnDelete.BorderColor = Color.Transparent;
+            tbtnDelete.BorderRadius = 18;
+            tbtnDelete.CustomizableEdges = customizableEdges3;
+            tbtnDelete.DisabledState.BorderColor = Color.DarkGray;
+            tbtnDelete.DisabledState.CustomBorderColor = Color.DarkGray;
+            tbtnDelete.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            tbtnDelete.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
+            tbtnDelete.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            tbtnDelete.FillColor = Color.White;
+            tbtnDelete.FillColor2 = Color.White;
+            tbtnDelete.Font = new Font("Open Sans ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tbtnDelete.ForeColor = Color.FromArgb(28, 76, 119);
+            tbtnDelete.Image = Properties.Resources.delete;
+            tbtnDelete.ImageAlign = HorizontalAlignment.Left;
+            tbtnDelete.ImageOffset = new Point(0, 20);
+            tbtnDelete.ImageSize = new Size(38, 38);
+            tbtnDelete.ImeMode = ImeMode.NoControl;
+            tbtnDelete.Location = new Point(270, 407);
+            tbtnDelete.Name = "tbtnDelete";
+            tbtnDelete.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            tbtnDelete.Size = new Size(160, 40);
+            tbtnDelete.TabIndex = 25;
+            tbtnDelete.Text = "Xóa";
+            tbtnDelete.TextOffset = new Point(20, -22);
             // 
             // txtDiaChi
             // 
             txtDiaChi.BorderRadius = 10;
-            txtDiaChi.CustomizableEdges = customizableEdges3;
+            txtDiaChi.CustomizableEdges = customizableEdges5;
             txtDiaChi.DefaultText = "";
             txtDiaChi.Font = new Font("Open Sans SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDiaChi.ForeColor = Color.Black;
@@ -134,14 +149,14 @@
             txtDiaChi.PlaceholderText = "Địa Chỉ";
             txtDiaChi.ReadOnly = true;
             txtDiaChi.SelectedText = "";
-            txtDiaChi.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtDiaChi.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtDiaChi.Size = new Size(400, 80);
             txtDiaChi.TabIndex = 0;
             // 
             // txtSDT
             // 
             txtSDT.BorderRadius = 10;
-            txtSDT.CustomizableEdges = customizableEdges5;
+            txtSDT.CustomizableEdges = customizableEdges7;
             txtSDT.DefaultText = "";
             txtSDT.Font = new Font("Open Sans SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtSDT.ForeColor = Color.Black;
@@ -152,14 +167,14 @@
             txtSDT.PlaceholderText = "Số Điện Thoại";
             txtSDT.ReadOnly = true;
             txtSDT.SelectedText = "";
-            txtSDT.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            txtSDT.ShadowDecoration.CustomizableEdges = customizableEdges8;
             txtSDT.Size = new Size(400, 35);
             txtSDT.TabIndex = 1;
             // 
             // txtTenKH
             // 
             txtTenKH.BorderRadius = 10;
-            txtTenKH.CustomizableEdges = customizableEdges7;
+            txtTenKH.CustomizableEdges = customizableEdges9;
             txtTenKH.DefaultText = "";
             txtTenKH.Font = new Font("Open Sans SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtTenKH.ForeColor = Color.Black;
@@ -170,7 +185,7 @@
             txtTenKH.PlaceholderText = "Tên Khách Hàng";
             txtTenKH.ReadOnly = true;
             txtTenKH.SelectedText = "";
-            txtTenKH.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            txtTenKH.ShadowDecoration.CustomizableEdges = customizableEdges10;
             txtTenKH.Size = new Size(400, 35);
             txtTenKH.TabIndex = 2;
             // 
@@ -178,7 +193,7 @@
             // 
             txtMaKH.AutoSize = true;
             txtMaKH.BorderRadius = 10;
-            txtMaKH.CustomizableEdges = customizableEdges9;
+            txtMaKH.CustomizableEdges = customizableEdges11;
             txtMaKH.DefaultText = "";
             txtMaKH.Font = new Font("Open Sans SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMaKH.ForeColor = Color.Black;
@@ -189,7 +204,7 @@
             txtMaKH.PlaceholderText = "Mã Khách Hàng";
             txtMaKH.ReadOnly = true;
             txtMaKH.SelectedText = "";
-            txtMaKH.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            txtMaKH.ShadowDecoration.CustomizableEdges = customizableEdges12;
             txtMaKH.Size = new Size(400, 42);
             txtMaKH.TabIndex = 3;
             // 
@@ -208,7 +223,7 @@
             // btnClose
             // 
             btnClose.BorderRadius = 12;
-            btnClose.CustomizableEdges = customizableEdges11;
+            btnClose.CustomizableEdges = customizableEdges13;
             btnClose.FillColor = Color.Transparent;
             btnClose.Font = new Font("Segoe UI", 9F);
             btnClose.ForeColor = Color.White;
@@ -216,41 +231,9 @@
             btnClose.ImageSize = new Size(50, 50);
             btnClose.Location = new Point(438, 21);
             btnClose.Name = "btnClose";
-            btnClose.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnClose.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnClose.Size = new Size(50, 50);
             btnClose.TabIndex = 5;
-            // 
-            // btnUpdate
-            // 
-            btnUpdate.BackColor = Color.Transparent;
-            btnUpdate.BorderRadius = 18;
-            btnUpdate.CustomizableEdges = customizableEdges13;
-            btnUpdate.FillColor = Color.White;
-            btnUpdate.Font = new Font("Open Sans ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUpdate.ForeColor = Color.FromArgb(27, 20, 100);
-            btnUpdate.Location = new Point(56, 407);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            btnUpdate.Size = new Size(160, 40);
-            btnUpdate.TabIndex = 6;
-            btnUpdate.Text = "Cập Nhật";
-            btnUpdate.TextAlign = HorizontalAlignment.Right;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.Transparent;
-            btnDelete.BorderRadius = 18;
-            btnDelete.CustomizableEdges = customizableEdges15;
-            btnDelete.FillColor = Color.White;
-            btnDelete.Font = new Font("Open Sans ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDelete.ForeColor = Color.FromArgb(27, 20, 100);
-            btnDelete.Location = new Point(273, 407);
-            btnDelete.Name = "btnDelete";
-            btnDelete.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnDelete.Size = new Size(160, 40);
-            btnDelete.TabIndex = 7;
-            btnDelete.Text = "Xóa";
-            btnDelete.TextAlign = HorizontalAlignment.Right;
             // 
             // sqlCommand1
             // 
@@ -267,16 +250,14 @@
             StartPosition = FormStartPosition.CenterScreen;
             pnlBackground.ResumeLayout(false);
             pnlBackground.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)cpbDelete).EndInit();
-            ((System.ComponentModel.ISupportInitialize)cpbUpdate).EndInit();
             ResumeLayout(false);
         }
 
-        private Guna.UI2.WinForms.Guna2CirclePictureBox cpbDelete;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox cpbUpdate;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private Guna.UI2.WinForms.Guna2GradientTileButton tbtnDelete;
+        private Guna.UI2.WinForms.Guna2GradientTileButton tbtnUpdate;
     }
 }
-        #endregion
+#endregion
 
 

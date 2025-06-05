@@ -1,89 +1,72 @@
 ﻿using System;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;   // sử dụng provider mới
+using Microsoft.Data.SqlClient;
+using QuanLyTiemTapHoa.DAOs;
+using QuanLyTiemTapHoa.Models;  
+
 
 namespace QuanLyTiemTapHoa
 {
     public partial class frmThongTinKhachHang : Form
     {
         private readonly string _maKH;
-
-        // Chuỗi kết nối: thêm Encrypt=False để tránh lỗi SSL
-        private const string Cnn =
-            @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
+        private readonly KhachHangDAO _khDAO = new KhachHangDAO();
 
         public frmThongTinKhachHang(string maKH, string tenKH, string diaChi, string sdt)
         {
             InitializeComponent();
             _maKH = maKH;
 
-            // Gán lên các TextBox trên form
             txtMaKH.Text = maKH;
             txtTenKH.Text = tenKH;
             txtDiaChi.Text = diaChi;
             txtSDT.Text = sdt;
+
             Load += Frm_Load;
             btnClose.Click += (_, __) => Close();
-            btnUpdate.Click += BtnUpdate_Click;
-            btnDelete.Click += BtnDelete_Click;
+            tbtnUpdate.Click += tbtnUpdate_Click;
+            tbtnDelete.Click += tbtnDelete_Click;
         }
 
-        //  Load dữ liệu khách hàng khi form mở
-        //
         private void Frm_Load(object? sender, EventArgs e)
         {
-            using var cnn = new SqlConnection(Cnn);
-            using var cmd = new SqlCommand(
-                "SELECT MaKH, TenKH, SDT_KH, DiaChi FROM KhachHang WHERE MaKH = @ma", cnn);
+            var kh = _khDAO.GetById(txtMaKH.Text.Trim()); // Dựa vào SDT tìm lại để lấy thông tin mới nhất
+            if (kh == null)
+            {
+                MessageBox.Show("Không tìm thấy khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
+            }
 
-            cmd.Parameters.AddWithValue("@ma", _maKH);
+            txtMaKH.Text = kh.MaKH;
+            txtTenKH.Text = kh.TenKH;
+            txtSDT.Text = kh.SDT_KH;
+            txtDiaChi.Text = kh.DiaChi;
 
-            cnn.Open();
-            using var rd = cmd.ExecuteReader();
-
-            if (!rd.Read()) return;
-
-            txtMaKH.Text = rd.IsDBNull(0) ? "" : rd.GetString(0);
-            txtTenKH.Text = rd.IsDBNull(1) ? "" : rd.GetString(1);
-            txtSDT.Text = rd.IsDBNull(2) ? "" : rd.GetString(2);
-            txtDiaChi.Text = rd.IsDBNull(3) ? "" : rd.GetString(3);
-
-            // Cho phép chỉnh sửa
             txtTenKH.ReadOnly = false;
             txtSDT.ReadOnly = false;
             txtDiaChi.ReadOnly = false;
         }
 
-        // 
-        //  Cập nhật khách hàng
-        // 
-        private void BtnUpdate_Click(object? sender, EventArgs e)
+        private void tbtnUpdate_Click(object? sender, EventArgs e)
         {
-            using var cnn = new SqlConnection(Cnn);
-            const string sql =
-                "UPDATE KhachHang " +
-                "SET TenKH=@ten, SDT_KH=@sdt, DiaChi=@dc " +
-                "WHERE MaKH=@ma";
+            var kh = new KhachHang
+            {
+                MaKH = _maKH,
+                TenKH = txtTenKH.Text.Trim(),
+                SDT_KH = txtSDT.Text.Trim(),
+                DiaChi = txtDiaChi.Text.Trim()
+            };
 
-            using var cmd = new SqlCommand(sql, cnn);
-            cmd.Parameters.AddWithValue("@ma", _maKH);
-            cmd.Parameters.AddWithValue("@ten", txtTenKH.Text.Trim());
-            cmd.Parameters.AddWithValue("@sdt", txtSDT.Text.Trim());
-            cmd.Parameters.AddWithValue("@dc", txtDiaChi.Text.Trim());
+            bool success = _khDAO.CapNhatKhachHang(kh);
 
-            cnn.Open();
-            int rows = cmd.ExecuteNonQuery();
-
-            MessageBox.Show(rows > 0
-                    ? "Đã cập nhật khách hàng."
-                    : "Cập nhật không thành công.",
+            MessageBox.Show(success
+                ? "Đã cập nhật khách hàng."
+                : "Cập nhật không thành công.",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // 
-        //  Xóa khách hàng
-        // 
-        private void BtnDelete_Click(object? sender, EventArgs e)
+        private void tbtnDelete_Click(object? sender, EventArgs e)
         {
             var confirm = MessageBox.Show(
                 "Bạn có chắc muốn xóa khách hàng này?",
@@ -93,21 +76,15 @@ namespace QuanLyTiemTapHoa
 
             if (confirm != DialogResult.Yes) return;
 
-            using var cnn = new SqlConnection(Cnn);
-            using var cmd = new SqlCommand(
-                "DELETE FROM KhachHang WHERE MaKH = @ma", cnn);
+            bool success = _khDAO.XoaKhachHang(_maKH);
 
-            cmd.Parameters.AddWithValue("@ma", _maKH);
-
-            cnn.Open();
-            int rows = cmd.ExecuteNonQuery();
-
-            MessageBox.Show(rows > 0
-                    ? "Đã xóa khách hàng."
-                    : "Xóa thất bại.",
+            MessageBox.Show(success
+                ? "Đã xóa khách hàng."
+                : "Xóa thất bại.",
                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            if (rows > 0) Close();
+            if (success) Close();
         }
     }
 }
+

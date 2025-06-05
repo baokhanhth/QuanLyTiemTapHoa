@@ -70,7 +70,7 @@ namespace QuanLyTiemTapHoa
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thêm hàng hóa:\n" + ex.Message,
+                MessageBox.Show("Lỗi khi thêm hàng hóa",
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

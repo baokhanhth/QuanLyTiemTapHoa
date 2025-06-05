@@ -3,71 +3,155 @@ using QuanLyTiemTapHoa.Helpers;
 using QuanLyTiemTapHoa.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace QuanLyTiemTapHoa.DAOs
 {
     public class NhaCungCapDAO
     {
         private readonly string _cnn = DbConfig.ConnectionString;
+
         public List<NhaCungCap> GetAll()
         {
             var list = new List<NhaCungCap>();
-            string sql = "SELECT MaNCC, TenNCC, DiaChi, SDT FROM NhaCungCap"; 
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_GetAll", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-            using (var conn = new SqlConnection(_cnn))
-            using (var cmd = new SqlCommand(sql, conn))
+            conn.Open();
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                conn.Open();
-                using (var reader = cmd.ExecuteReader())
+                list.Add(new NhaCungCap
                 {
-                    while (reader.Read())
-                    {
-                        list.Add(new NhaCungCap
-                        {
-                            MaNCC = reader.IsDBNull(0) ? null : reader.GetString(0),
-                            TenNCC = reader.IsDBNull(1) ? null : reader.GetString(1),
-                            DiaChi = reader.IsDBNull(2) ? null : reader.GetString(2),
-                            SDT = reader.IsDBNull(3) ? null : reader.GetString(3)
-                        });
-                    }
-                }
+                    MaNCC = reader["MaNCC"].ToString(),
+                    TenNCC = reader["TenNCC"].ToString(),
+                    DiaChi = reader["DiaChi"].ToString(),
+                    SDT = reader["SDT"].ToString()
+                });
             }
             return list;
         }
 
+        public List<NhaCungCap> Search(string keyword)
+        {
+            var list = new List<NhaCungCap>();
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_Search", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@keyword", keyword);
+
+            conn.Open();
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                list.Add(new NhaCungCap
+                {
+                    MaNCC = reader["MaNCC"].ToString(),
+                    TenNCC = reader["TenNCC"].ToString(),
+                    DiaChi = reader["DiaChi"].ToString(),
+                    SDT = reader["SDT"].ToString()
+                });
+            }
+            return list;
+        }
+
+        public bool Exists(string maNCC)
+        {
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_Exists", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaNCC", maNCC);
+
+            conn.Open();
+            int count = (int)cmd.ExecuteScalar();
+            return count > 0;
+        }
+
+        public bool ThemNhaCungCap(NhaCungCap ncc)
+        {
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_Insert", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaNCC", ncc.MaNCC ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@TenNCC", ncc.TenNCC ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@DiaChi", ncc.DiaChi ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@SDT", ncc.SDT ?? (object)DBNull.Value);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            return result > 0;
+        }
+
+        public bool CapNhatNhaCungCap(NhaCungCap ncc)
+        {
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_Update", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaNCC", ncc.MaNCC ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@TenNCC", ncc.TenNCC ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@DiaChi", ncc.DiaChi ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@SDT", ncc.SDT ?? (object)DBNull.Value);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            return result > 0;
+        }
+
+        public bool XoaNhaCungCap(string maNCC)
+        {
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_Delete", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaNCC", maNCC);
+
+            conn.Open();
+            int result = cmd.ExecuteNonQuery();
+            return result > 0;
+        }
+
+        public NhaCungCap GetById(string maNCC)
+        {
+            NhaCungCap ncc = null;
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_GetById", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@MaNCC", maNCC);
+
+            conn.Open();
+            using var reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                ncc = new NhaCungCap
+                {
+                    MaNCC = reader["MaNCC"].ToString(),
+                    TenNCC = reader["TenNCC"].ToString(),
+                    DiaChi = reader["DiaChi"].ToString(),
+                    SDT = reader["SDT"].ToString()
+                };
+            }
+            return ncc;
+        }
         public NhaCungCap TimNhaCungCapTheoSDT(string sdt)
         {
-            NhaCungCap nhaCungCap = null;
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_NCC_SearchBySDT", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@SDT", sdt);
 
-            using (var conn = new SqlConnection(_cnn))
+            conn.Open();
+            using var reader = cmd.ExecuteReader();
+            if (reader.Read()) // chỉ lấy bản ghi đầu tiên
             {
-                string query = "SELECT MaNCC, TenNCC, DiaChi, SDT FROM NhaCungCap WHERE SDT = @SDT";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                return new NhaCungCap
                 {
-                    cmd.Parameters.AddWithValue("@SDT", sdt);
-
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            nhaCungCap = new NhaCungCap
-                            {
-                                MaNCC = reader["MaNCC"].ToString(),
-                                TenNCC = reader["TenNCC"].ToString(),
-                                DiaChi = reader["DiaChi"].ToString(),
-                                SDT = reader["SDT"].ToString()
-                            };
-                        }
-                    }
-                }
+                    MaNCC = reader["MaNCC"].ToString(),
+                    TenNCC = reader["TenNCC"].ToString(),
+                    DiaChi = reader["DiaChi"].ToString(),
+                    SDT = reader["SDT"].ToString()
+                };
             }
-
-            return nhaCungCap;
+            return null;
         }
     }
 }

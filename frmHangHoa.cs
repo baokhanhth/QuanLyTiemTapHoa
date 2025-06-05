@@ -231,5 +231,10 @@ namespace QuanLyTiemTapHoa
                 e.Paint(e.ClipBounds, DataGridViewPaintParts.Border);
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

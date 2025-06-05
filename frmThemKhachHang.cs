@@ -1,67 +1,71 @@
-﻿//using Microsoft.Data.SqlClient;
-//using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Windows.Forms;
-//using Guna.UI2.WinForms;
-//namespace QuanLyTiemTapHoa
-//{
-//    public partial class frmThemKhachHang : Form
-//    {
-//        private frmKhachHang parentForm;
-//        public frmThemKhachHang(frmKhachHang parent)
-//        {
-//            InitializeComponent();
-//            parentForm = parent;
+﻿using Microsoft.Data.SqlClient;
+using System;
+using System.Windows.Forms;
+using Guna.UI2.WinForms;
+using QuanLyTiemTapHoa.DAOs;
+using QuanLyTiemTapHoa.Models;
 
-//        }
-//        private const string Cnn =  @"Server=.;Database=QuanLyBanHang;Trusted_Connection=True;Encrypt=False;";
-//        private void btnThemClose_Click(object sender, EventArgs e)
-//        {
-//            this.Close();
-//        }
+namespace QuanLyTiemTapHoa
+{
+    // Interface đặt ngoài class để các form khác cùng implement được
+    public interface IReloadKhachHang
+    {
+        void LoadKhachHang();
+    }
 
-//        private void btnThem_Click(object sender, EventArgs e)
-//        {
-//            using var cnn = new SqlConnection(Cnn);
-//            const string sql = "INSERT INTO KhachHang (MaKH, TenKH, SDT_KH, DiaChi)" +
-//                "VALUES (@ma, @ten, @sdt, @dc)";
+    public partial class frmThemKhachHang : Form
+    {
+        private readonly IReloadKhachHang _parentForm;
+        private readonly KhachHangDAO _khachHangDAO = new KhachHangDAO();
 
-//            using var cmd = new SqlCommand(sql, cnn);
-//            cmd.Parameters.AddWithValue("@ma", txtMaKH.Text.Trim());
-//            cmd.Parameters.AddWithValue("@ten", txtTenKH.Text.Trim());
-//            cmd.Parameters.AddWithValue("@sdt", txtSDT.Text.Trim());
-//            cmd.Parameters.AddWithValue("@dc", txtDiaChi.Text.Trim());
+        public frmThemKhachHang(IReloadKhachHang parent = null, string sdtMacDinh = "")
+        {
+            InitializeComponent();
+            _parentForm = parent;
 
-//            try
-//            {
-//                cnn.Open();
-//                int rows = cmd.ExecuteNonQuery();
+            if (!string.IsNullOrEmpty(sdtMacDinh))
+            {
+                txtSDT.Text = sdtMacDinh;
+                txtSDT.ReadOnly = true; // Nếu muốn cho phép sửa thì false
+            }
+        }
 
-//                if (rows > 0)
-//                {
-//                    MessageBox.Show("Đã thêm khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        private void btnThemClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-//                    // Gọi lại danh sách khách hàng ở form cha
-//                    parentForm.LoadKhachHang();
+        private void tbtnThem_Click(object sender, EventArgs e)
+        {
+            var khachHangMoi = new KhachHang()
+            {
+                MaKH = txtMaKH.Text.Trim(),
+                TenKH = txtTenKH.Text.Trim(),
+                SDT_KH = txtSDT.Text.Trim(),
+                DiaChi = txtDiaChi.Text.Trim()
+            };
 
-//                    // Đóng form hiện tại
-//                    this.Close();
-//                }
-//                else
-//                {
-//                    MessageBox.Show("Thêm khách hàng không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-//                }
-//            }
-//            catch (Exception ex)
-//            {
-//                MessageBox.Show("Lỗi khi thêm khách hàng");
-//            }
-//        }
-//    }
-//}
+            try
+            {
+                bool success = _khachHangDAO.ThemKhachHang(khachHangMoi);
+
+                if (success)
+                {
+                    MessageBox.Show("Đã thêm khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    _parentForm?.LoadKhachHang();
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm khách hàng không thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm khách hàng: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    }
+}

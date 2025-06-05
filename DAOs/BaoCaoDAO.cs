@@ -1,45 +1,35 @@
 ﻿using Microsoft.Data.SqlClient;
-using QuanLyTiemTapHoa.Models;
 using QuanLyTiemTapHoa.Helpers;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace QuanLyTiemTapHoa.DAOs
+public class BaoCaoDAO
 {
-    public class BaoCaoDAO
+    private static readonly string _cnn = DbConfig.ConnectionString;
+
+    public static List<(string ThangNam, decimal TongDoanhThu)> LayBaoCaoDoanhThu(DateTime tuNgay, DateTime denNgay)
     {
-        private readonly string _cnn = DbConfig.ConnectionString;
+        var ketQua = new List<(string, decimal)>();
 
-        public List<DoanhThuTheoThang> LayDoanhThuTheoThang()
+        using (SqlConnection conn = new SqlConnection(_cnn))
+        using (SqlCommand cmd = new SqlCommand("pTaoBaoCaoDoanhThu", conn))
         {
-            var list = new List<DoanhThuTheoThang>();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@TuNgay", tuNgay);
+            cmd.Parameters.AddWithValue("@DenNgay", denNgay);
+            cmd.CommandTimeout = 120; // <-- Thêm dòng này
 
-            using (SqlConnection conn = new SqlConnection(_cnn))
-            using (SqlCommand cmd = new SqlCommand("usp_TaoBaoCaoDoanhThu", conn))
+            conn.Open();
+            using (SqlDataReader reader = cmd.ExecuteReader())
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                conn.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        list.Add(new DoanhThuTheoThang
-                        {
-                            Thang = reader.GetInt32(reader.GetOrdinal("Thang")),
-                            Nam = reader.GetInt32(reader.GetOrdinal("Nam")),
-                            TongDoanhThu = reader.GetDecimal(reader.GetOrdinal("TongDoanhThu"))
-                        });
-                    }
+                    string thangNam = reader["ThangNam"].ToString();
+                    decimal tongDoanhThu = Convert.ToDecimal(reader["TongDoanhThu"]);
+                    ketQua.Add((thangNam, tongDoanhThu));
                 }
             }
-
-            return list;
         }
-    }
 
+        return ketQua;
+    }
 }

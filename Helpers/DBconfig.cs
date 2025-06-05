@@ -15,9 +15,11 @@ namespace QuanLyTiemTapHoa.Helpers
         /// <summary>
         /// Lấy connection string từ app.config (hoặc web.config).
         /// </summary>
-        public static string ConnectionString =>
-            ConfigurationManager
-                .ConnectionStrings["QuanLyBanHang"]
-                .ConnectionString;
+        public static string ConnectionString =>ConfigurationManager.ConnectionStrings["QuanLyBanHang"].ConnectionString;
+
+        public static string GetConnectionString(string username, string password)
+        {
+            return $"Data Source=Arus\\BAOKHANH;Initial Catalog=QuanLyBanHang;User ID={username};Password={password};TrustServerCertificate=True;";
+        }
     }
 }

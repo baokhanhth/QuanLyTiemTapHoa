@@ -54,7 +54,7 @@ namespace QuanLyTiemTapHoa
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi tải dữ liệu" , "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -122,9 +122,9 @@ namespace QuanLyTiemTapHoa
 
             dgvCapNhatGia.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "DonGN",
+                DataPropertyName = "DonGN_MaHoa",
                 HeaderText = "Đơn Giá Nhập",
-                Name = "DonGN",
+                Name = "DonGN_MaHoa",
                 Width = 100,
                 DefaultCellStyle = new DataGridViewCellStyle
                 {

@@ -11,6 +11,6 @@ namespace QuanLyTiemTapHoa.Models
         public string MaHang { get; set; }   
         public string TenHang { get; set; }   
         public string DonVT { get; set; }  
-        public int SoLuongTon { get; set; }   
+        public long SoLuongTon { get; set; }   
     }
 }

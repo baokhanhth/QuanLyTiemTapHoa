@@ -9,6 +9,7 @@ namespace QuanLyTiemTapHoa.Models
     public class NhapHang
     {
         public string MaNH { get; set; }
+        public DateTime? NgayNhap { get; set; }
         public string MaNCC { get; set; }
         public decimal NH_TongCong { get; set; }
         public decimal CK_NH { get; set; }

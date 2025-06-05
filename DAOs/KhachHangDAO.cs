@@ -17,28 +17,27 @@ namespace QuanLyTiemTapHoa.DAOs
         public List<KhachHang> GetAll()
         {
             var list = new List<KhachHang>();
-            string sql = "SELECT MaKH, TenKH, DiaChi, SDT_KH FROM KhachHang"; 
 
-            using (var conn = new SqlConnection(_cnn))
-            using (var cmd = new SqlCommand(sql, conn))
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_LayTatCaKhachHang", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                conn.Open();
-                using (var reader = cmd.ExecuteReader())
+                list.Add(new KhachHang
                 {
-                    while (reader.Read())
-                    {
-                        list.Add(new KhachHang
-                        {
-                            MaKH = reader.IsDBNull(0) ? null : reader.GetString(0),
-                            TenKH = reader.IsDBNull(1) ? null : reader.GetString(1),
-                            DiaChi = reader.IsDBNull(2) ? null : reader.GetString(2),
-                            SDT_KH = reader.IsDBNull(3) ? null : reader.GetString(3)
-                        });
-                    }
-                }
+                    MaKH = reader["MaKH"].ToString(),
+                    TenKH = reader["TenKH"].ToString(),
+                    DiaChi = reader["DiaChi"].ToString(),
+                    SDT_KH = reader["SDT_KH"].ToString()
+                });
             }
+
             return list;
         }
+
 
         public List<KhachHang> Search(string keyword)
         {
@@ -73,19 +72,85 @@ namespace QuanLyTiemTapHoa.DAOs
             KhachHang khachHang = null;
 
             using (var conn = new SqlConnection(_cnn))
+            using (var cmd = new SqlCommand("sp_LayKhachHangTheoSDT", conn))
             {
-                string query = "SELECT MaKH, TenKH, DiaChi, SDT_KH FROM KhachHang WHERE SDT_KH = @SDT";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@SDT", sdt);
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                conn.Open();
+                using (var reader = cmd.ExecuteReader())
                 {
-                    cmd.Parameters.AddWithValue("@SDT", sdt);
+                    if (reader.Read())
+                    {
+                        khachHang = new KhachHang
+                        {
+                            MaKH = reader["MaKH"].ToString(),
+                            TenKH = reader["TenKH"].ToString(),
+                            DiaChi = reader["DiaChi_MaHoa"].ToString(),
+                            SDT_KH = reader["SDT_KH_MaHoa"].ToString()
+                        };
+                    }
+                }
+            }
 
-                    conn.Open();
+            return khachHang;
+        }
+        public bool ThemKhachHang(KhachHang kh)
+        {
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_ThemKhachHang", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@MaKH", kh.MaKH);
+            cmd.Parameters.AddWithValue("@TenKH", kh.TenKH ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@DiaChi", kh.DiaChi ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@SDT_KH", kh.SDT_KH ?? (object)DBNull.Value);
+
+            conn.Open();
+            return cmd.ExecuteNonQuery() > 0;
+        }
+        public bool CapNhatKhachHang(KhachHang kh)
+        {
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_CapNhatKhachHang", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@MaKH", kh.MaKH);
+            cmd.Parameters.AddWithValue("@TenKH", kh.TenKH ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@DiaChi", kh.DiaChi ?? (object)DBNull.Value);
+            cmd.Parameters.AddWithValue("@SDT_KH", kh.SDT_KH ?? (object)DBNull.Value);
+
+            conn.Open();
+            return cmd.ExecuteNonQuery() > 0;
+        }
+        public bool XoaKhachHang(string maKH)
+        {
+            using var conn = new SqlConnection(_cnn);
+            using var cmd = new SqlCommand("sp_XoaKhachHang", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@MaKH", maKH);
+
+            conn.Open();
+            return cmd.ExecuteNonQuery() > 0;
+        }
+        public KhachHang GetById(string maKH)
+        {
+            KhachHang kh = null;
+
+            using (SqlConnection conn = new SqlConnection(_cnn))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("usp_GetKhachHangById", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MaKH", maKH);
+
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
-                            khachHang = new KhachHang
+                            kh = new KhachHang
                             {
                                 MaKH = reader["MaKH"].ToString(),
                                 TenKH = reader["TenKH"].ToString(),
@@ -96,7 +161,8 @@ namespace QuanLyTiemTapHoa.DAOs
                     }
                 }
             }
-            return khachHang;
+
+            return kh;
         }
     }
 }
